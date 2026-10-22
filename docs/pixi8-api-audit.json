@@ -1,0 +1,3454 @@
+{
+  "baseline": "pixi.js@8.20.0",
+  "source": "https://pixijs.download/v8.20.0/docs/index.html",
+  "note": "Export presence is not full compatibility. This inventory includes public renderer infrastructure as well as scene APIs. See pixi8-compatibility.md for semantic limits and device evidence.",
+  "summary": {
+    "official": 739,
+    "adapterPresent": 68,
+    "explicitlyUnsupported": 4,
+    "unadapted": 667
+  },
+  "exports": [
+    {
+      "name": "AbstractBitmapFont",
+      "status": "unadapted"
+    },
+    {
+      "name": "AbstractBitmapTextPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "AbstractRenderer",
+      "status": "unadapted"
+    },
+    {
+      "name": "AbstractSplitText",
+      "status": "unadapted"
+    },
+    {
+      "name": "AbstractText",
+      "status": "unadapted"
+    },
+    {
+      "name": "AbstractTextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "AccessibilitySystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "AlphaFilter",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "AlphaMask",
+      "status": "unadapted"
+    },
+    {
+      "name": "AlphaMaskPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "AnimatedSprite",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Application",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "ApplicationInitHook",
+      "status": "unadapted"
+    },
+    {
+      "name": "Assets",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "AssetsClass",
+      "status": "unadapted"
+    },
+    {
+      "name": "BLEND_TO_NPM",
+      "status": "unadapted"
+    },
+    {
+      "name": "BREAKING_SPACES",
+      "status": "unadapted"
+    },
+    {
+      "name": "BREAKING_SPACES_SET",
+      "status": "unadapted"
+    },
+    {
+      "name": "BREAK_AFTER_CHARS",
+      "status": "unadapted"
+    },
+    {
+      "name": "BREAK_AFTER_CHARS_SET",
+      "status": "unadapted"
+    },
+    {
+      "name": "BUFFER_TYPE",
+      "status": "unadapted"
+    },
+    {
+      "name": "BackgroundLoader",
+      "status": "unadapted"
+    },
+    {
+      "name": "BackgroundSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "Batch",
+      "status": "unadapted"
+    },
+    {
+      "name": "BatchGeometry",
+      "status": "unadapted"
+    },
+    {
+      "name": "BatchTextureArray",
+      "status": "unadapted"
+    },
+    {
+      "name": "BatchableHTMLText",
+      "status": "unadapted"
+    },
+    {
+      "name": "BatchableMesh",
+      "status": "unadapted"
+    },
+    {
+      "name": "BatchableSprite",
+      "status": "unadapted"
+    },
+    {
+      "name": "BatchableText",
+      "status": "unadapted"
+    },
+    {
+      "name": "Batcher",
+      "status": "unadapted"
+    },
+    {
+      "name": "BatcherPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "BindGroup",
+      "status": "unadapted"
+    },
+    {
+      "name": "BindGroupSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "BitmapFont",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "BitmapFontManager",
+      "status": "unadapted"
+    },
+    {
+      "name": "BitmapText",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "BitmapTextGraphics",
+      "status": "unadapted"
+    },
+    {
+      "name": "BitmapTextPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "BlendModeFilter",
+      "status": "unadapted"
+    },
+    {
+      "name": "BlendModePipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "BlurFilter",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "BlurFilterPass",
+      "status": "unadapted"
+    },
+    {
+      "name": "Bounds",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "BrowserAdapter",
+      "status": "unadapted"
+    },
+    {
+      "name": "Buffer",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "BufferImageSource",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "BufferResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "BufferUsage",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "CLEAR",
+      "status": "unadapted"
+    },
+    {
+      "name": "COLLAPSIBLE_SPACES",
+      "status": "unadapted"
+    },
+    {
+      "name": "COLLAPSIBLE_SPACES_SET",
+      "status": "unadapted"
+    },
+    {
+      "name": "Cache",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "CanvasBatchAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasBitmapTextPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasColorMaskPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasContextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasFilterSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasGraphicsAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasGraphicsContextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasGraphicsPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasLimitsSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasNineSliceSpritePipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasObserver",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasParticleContainerAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasParticleContainerPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasPool",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasPoolClass",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasRenderTargetAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasRenderTargetSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasRenderer",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasRendererTextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasSource",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "CanvasStencilMaskPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasTextGenerator",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasTextMetrics",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasTextPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasTextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasTextureSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "CanvasTilingSpritePipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "Circle",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Color",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "ColorBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "ColorBurnBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "ColorDodgeBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "ColorMask",
+      "status": "unadapted"
+    },
+    {
+      "name": "ColorMaskPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "ColorMatrixFilter",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "CompressedSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "Container",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "CubeTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "CubeTextureSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "Culler",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "CullerPlugin",
+      "status": "unadapted"
+    },
+    {
+      "name": "CustomRenderPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "D3D10_RESOURCE_DIMENSION",
+      "status": "unadapted"
+    },
+    {
+      "name": "D3DFMT",
+      "status": "unadapted"
+    },
+    {
+      "name": "DATA_URI",
+      "status": "unadapted"
+    },
+    {
+      "name": "DDS",
+      "status": "unadapted"
+    },
+    {
+      "name": "DEG_TO_RAD",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "DEPRECATED_SCALE_MODES",
+      "status": "unadapted"
+    },
+    {
+      "name": "DEPRECATED_WRAP_MODES",
+      "status": "unadapted"
+    },
+    {
+      "name": "DOMAdapter",
+      "status": "unadapted"
+    },
+    {
+      "name": "DOMContainer",
+      "status": "unadapted"
+    },
+    {
+      "name": "DOMPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "DRAW_MODES",
+      "status": "unadapted"
+    },
+    {
+      "name": "DXGI_FORMAT",
+      "status": "unadapted"
+    },
+    {
+      "name": "DXGI_TO_TEXTURE_FORMAT",
+      "status": "unadapted"
+    },
+    {
+      "name": "DarkenBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "DefaultBatcher",
+      "status": "unadapted"
+    },
+    {
+      "name": "DefaultShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "DifferenceBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "DisplacementFilter",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "DivideBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "DynamicBitmapFont",
+      "status": "unadapted"
+    },
+    {
+      "name": "Ellipse",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "EventBoundary",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "EventEmitter",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "EventSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "EventsTicker",
+      "status": "unadapted"
+    },
+    {
+      "name": "ExclusionBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "ExtensionType",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "ExternalSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "ExtractSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "FOURCC_TO_TEXTURE_FORMAT",
+      "status": "unadapted"
+    },
+    {
+      "name": "FederatedContainer",
+      "status": "unadapted"
+    },
+    {
+      "name": "FederatedEvent",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "FederatedMouseEvent",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "FederatedPointerEvent",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "FederatedWheelEvent",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "FillGradient",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "FillPattern",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Filter",
+      "status": "explicitly-unsupported"
+    },
+    {
+      "name": "FilterEffect",
+      "status": "unadapted"
+    },
+    {
+      "name": "FilterPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "FilterSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "FontStylePromiseCache",
+      "status": "unadapted"
+    },
+    {
+      "name": "GAUSSIAN_VALUES",
+      "status": "unadapted"
+    },
+    {
+      "name": "GCManagedHash",
+      "status": "unadapted"
+    },
+    {
+      "name": "GCSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GL_FORMATS",
+      "status": "unadapted"
+    },
+    {
+      "name": "GL_INTERNAL_FORMAT",
+      "status": "unadapted"
+    },
+    {
+      "name": "GL_TARGETS",
+      "status": "unadapted"
+    },
+    {
+      "name": "GL_TYPES",
+      "status": "unadapted"
+    },
+    {
+      "name": "GL_WRAP_MODES",
+      "status": "unadapted"
+    },
+    {
+      "name": "GPUTextureGpuData",
+      "status": "unadapted"
+    },
+    {
+      "name": "GenerateTextureSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "Geometry",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlBackBufferSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlBatchAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlBuffer",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlBufferSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlColorMaskSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlContextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlEncoderSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlGeometryGpuData",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlGeometrySystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlGraphicsAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlLimitsSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlMeshAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlParticleContainerAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlParticleContainerPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlProgram",
+      "status": "explicitly-unsupported"
+    },
+    {
+      "name": "GlProgramData",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlRenderTarget",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlRenderTargetAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlRenderTargetSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlShaderSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlStateSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlStencilSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlTextureSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlUboSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlUniformGroupSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlobalResourceRegistry",
+      "status": "unadapted"
+    },
+    {
+      "name": "GlobalUniformSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuBatchAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuBlendModesToPixi",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuBufferData",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuBufferSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuColorMaskSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuDeviceSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuEncoderSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuGraphicsAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuGraphicsContext",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuLimitsSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuMeshAdapter",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuMipmapGenerator",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuParticleContainerAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuParticleContainerPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuProgram",
+      "status": "explicitly-unsupported"
+    },
+    {
+      "name": "GpuRenderTarget",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuRenderTargetAdaptor",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuRenderTargetSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuShaderSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuStateSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuStencilModesToPixi",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuStencilSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuTextureSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuUboSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GpuUniformBatchPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "Graphics",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "GraphicsContext",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "GraphicsContextRenderData",
+      "status": "unadapted"
+    },
+    {
+      "name": "GraphicsContextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "GraphicsGpuData",
+      "status": "unadapted"
+    },
+    {
+      "name": "GraphicsPath",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "GraphicsPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "HTMLText",
+      "status": "unadapted"
+    },
+    {
+      "name": "HTMLTextPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "HTMLTextRenderData",
+      "status": "unadapted"
+    },
+    {
+      "name": "HTMLTextStyle",
+      "status": "unadapted"
+    },
+    {
+      "name": "HTMLTextSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "HardLightBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "HardMixBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "HelloSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "IGLUniformData",
+      "status": "unadapted"
+    },
+    {
+      "name": "ImageSource",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "InstructionSet",
+      "status": "unadapted"
+    },
+    {
+      "name": "KTX",
+      "status": "unadapted"
+    },
+    {
+      "name": "LightenBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "LinearBurnBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "LinearDodgeBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "LinearLightBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "Loader",
+      "status": "unadapted"
+    },
+    {
+      "name": "LoaderParserPriority",
+      "status": "unadapted"
+    },
+    {
+      "name": "LuminosityBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "MaskEffectManager",
+      "status": "unadapted"
+    },
+    {
+      "name": "MaskEffectManagerClass",
+      "status": "unadapted"
+    },
+    {
+      "name": "MaskFilter",
+      "status": "unadapted"
+    },
+    {
+      "name": "Matrix",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Mesh",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "MeshGeometry",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "MeshGpuData",
+      "status": "unadapted"
+    },
+    {
+      "name": "MeshPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "MeshPlane",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "MeshRope",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "MeshSimple",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "NEWLINES",
+      "status": "unadapted"
+    },
+    {
+      "name": "NEWLINES_SET",
+      "status": "unadapted"
+    },
+    {
+      "name": "NEWLINE_MATCH_REGEX",
+      "status": "unadapted"
+    },
+    {
+      "name": "NEWLINE_SPLIT_REGEX",
+      "status": "unadapted"
+    },
+    {
+      "name": "NOOP",
+      "status": "unadapted"
+    },
+    {
+      "name": "NegationBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "NineSliceGeometry",
+      "status": "unadapted"
+    },
+    {
+      "name": "NineSlicePlane",
+      "status": "unadapted"
+    },
+    {
+      "name": "NineSliceSprite",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "NineSliceSpriteGpuData",
+      "status": "unadapted"
+    },
+    {
+      "name": "NineSliceSpritePipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "NoiseFilter",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "ObservablePoint",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "OverlayBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "PI_2",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Particle",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "ParticleBuffer",
+      "status": "unadapted"
+    },
+    {
+      "name": "ParticleContainer",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "ParticleContainerPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "ParticleShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "PassthroughFilter",
+      "status": "unadapted"
+    },
+    {
+      "name": "PerspectiveMesh",
+      "status": "unadapted"
+    },
+    {
+      "name": "PerspectivePlaneGeometry",
+      "status": "unadapted"
+    },
+    {
+      "name": "PinLightBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "PipelineSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "PlaneGeometry",
+      "status": "unadapted"
+    },
+    {
+      "name": "Point",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Polygon",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Pool",
+      "status": "unadapted"
+    },
+    {
+      "name": "PoolGroupClass",
+      "status": "unadapted"
+    },
+    {
+      "name": "PrepareBase",
+      "status": "unadapted"
+    },
+    {
+      "name": "PrepareQueue",
+      "status": "unadapted"
+    },
+    {
+      "name": "PrepareSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "PrepareUpload",
+      "status": "unadapted"
+    },
+    {
+      "name": "QuadGeometry",
+      "status": "unadapted"
+    },
+    {
+      "name": "RAD_TO_DEG",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Rectangle",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "RenderContainer",
+      "status": "unadapted"
+    },
+    {
+      "name": "RenderGroup",
+      "status": "unadapted"
+    },
+    {
+      "name": "RenderGroupPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "RenderGroupSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "RenderLayer",
+      "status": "unadapted"
+    },
+    {
+      "name": "RenderTarget",
+      "status": "unadapted"
+    },
+    {
+      "name": "RenderTargetSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "RenderTexture",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "RenderableGCSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "RendererInitHook",
+      "status": "unadapted"
+    },
+    {
+      "name": "RendererType",
+      "status": "unadapted"
+    },
+    {
+      "name": "ResizePlugin",
+      "status": "unadapted"
+    },
+    {
+      "name": "Resolver",
+      "status": "unadapted"
+    },
+    {
+      "name": "RopeGeometry",
+      "status": "unadapted"
+    },
+    {
+      "name": "RoundedRectangle",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "SCALE_MODES",
+      "status": "unadapted"
+    },
+    {
+      "name": "STATE_BITS",
+      "status": "unadapted"
+    },
+    {
+      "name": "STENCIL_MODES",
+      "status": "unadapted"
+    },
+    {
+      "name": "SVGDefsCollector",
+      "status": "unadapted"
+    },
+    {
+      "name": "SVGParser",
+      "status": "unadapted"
+    },
+    {
+      "name": "SaturationBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "SchedulerSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "ScissorMask",
+      "status": "unadapted"
+    },
+    {
+      "name": "SdfShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "Shader",
+      "status": "explicitly-unsupported"
+    },
+    {
+      "name": "ShaderOverrides",
+      "status": "unadapted"
+    },
+    {
+      "name": "ShaderStage",
+      "status": "unadapted"
+    },
+    {
+      "name": "ShapePath",
+      "status": "unadapted"
+    },
+    {
+      "name": "SharedRenderPipes",
+      "status": "unadapted"
+    },
+    {
+      "name": "SharedSystems",
+      "status": "unadapted"
+    },
+    {
+      "name": "SoftLightBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "SplitBitmapText",
+      "status": "unadapted"
+    },
+    {
+      "name": "SplitText",
+      "status": "unadapted"
+    },
+    {
+      "name": "Sprite",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "SpritePipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "Spritesheet",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "State",
+      "status": "unadapted"
+    },
+    {
+      "name": "StencilMask",
+      "status": "unadapted"
+    },
+    {
+      "name": "StencilMaskPipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "SubtractBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "SystemRunner",
+      "status": "unadapted"
+    },
+    {
+      "name": "TEXTURE_FORMAT_BLOCK_SIZE",
+      "status": "unadapted"
+    },
+    {
+      "name": "Text",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "TextStyle",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "Texture",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "TextureGCSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "TextureMatrix",
+      "status": "unadapted"
+    },
+    {
+      "name": "TexturePool",
+      "status": "unadapted"
+    },
+    {
+      "name": "TexturePoolClass",
+      "status": "unadapted"
+    },
+    {
+      "name": "TextureSource",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "TextureStyle",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "TextureUvs",
+      "status": "unadapted"
+    },
+    {
+      "name": "TextureView",
+      "status": "unadapted"
+    },
+    {
+      "name": "Ticker",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "TickerListener",
+      "status": "unadapted"
+    },
+    {
+      "name": "TickerPlugin",
+      "status": "unadapted"
+    },
+    {
+      "name": "TilingSprite",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "TilingSpriteGpuData",
+      "status": "unadapted"
+    },
+    {
+      "name": "TilingSpritePipe",
+      "status": "unadapted"
+    },
+    {
+      "name": "TilingSpriteShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "Transform",
+      "status": "unadapted"
+    },
+    {
+      "name": "Triangle",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "UNIFORM_TO_ARRAY_SETTERS",
+      "status": "unadapted"
+    },
+    {
+      "name": "UNIFORM_TO_SINGLE_SETTERS",
+      "status": "unadapted"
+    },
+    {
+      "name": "UNIFORM_TYPES_MAP",
+      "status": "unadapted"
+    },
+    {
+      "name": "UNIFORM_TYPES_VALUES",
+      "status": "unadapted"
+    },
+    {
+      "name": "UPDATE_BLEND",
+      "status": "unadapted"
+    },
+    {
+      "name": "UPDATE_COLOR",
+      "status": "unadapted"
+    },
+    {
+      "name": "UPDATE_PRIORITY",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "UPDATE_TRANSFORM",
+      "status": "unadapted"
+    },
+    {
+      "name": "UPDATE_VISIBLE",
+      "status": "unadapted"
+    },
+    {
+      "name": "UboBatch",
+      "status": "unadapted"
+    },
+    {
+      "name": "UboSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "UniformGroup",
+      "status": "unadapted"
+    },
+    {
+      "name": "VERSION",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "VideoSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "ViewContainer",
+      "status": "unadapted"
+    },
+    {
+      "name": "ViewSystem",
+      "status": "unadapted"
+    },
+    {
+      "name": "ViewableBuffer",
+      "status": "unadapted"
+    },
+    {
+      "name": "VividLightBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "WGSL_ALIGN_SIZE_DATA",
+      "status": "unadapted"
+    },
+    {
+      "name": "WGSL_TO_STD40_SIZE",
+      "status": "unadapted"
+    },
+    {
+      "name": "WRAP_MODES",
+      "status": "unadapted"
+    },
+    {
+      "name": "WebGLRenderer",
+      "status": "unadapted"
+    },
+    {
+      "name": "WebGPURenderer",
+      "status": "unadapted"
+    },
+    {
+      "name": "WebWorkerAdapter",
+      "status": "unadapted"
+    },
+    {
+      "name": "WorkerManager",
+      "status": "unadapted"
+    },
+    {
+      "name": "accessibilityTarget",
+      "status": "unadapted"
+    },
+    {
+      "name": "addBits",
+      "status": "unadapted"
+    },
+    {
+      "name": "addMaskBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "addMaskLocalBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "addProgramDefines",
+      "status": "unadapted"
+    },
+    {
+      "name": "alphaFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "alphaWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "appendSVGPath",
+      "status": "unadapted"
+    },
+    {
+      "name": "applyMatrix",
+      "status": "unadapted"
+    },
+    {
+      "name": "applyProjectiveTransformationToPlane",
+      "status": "unadapted"
+    },
+    {
+      "name": "applyStyleParams",
+      "status": "unadapted"
+    },
+    {
+      "name": "assignWithIgnore",
+      "status": "unadapted"
+    },
+    {
+      "name": "autoDetectEnvironment",
+      "status": "unadapted"
+    },
+    {
+      "name": "autoDetectRenderer",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "autoDetectSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "bakeOverridesIntoSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "basisTranscoderUrls",
+      "status": "unadapted"
+    },
+    {
+      "name": "bgr2rgb",
+      "status": "unadapted"
+    },
+    {
+      "name": "bitmapFontCachePlugin",
+      "status": "unadapted"
+    },
+    {
+      "name": "bitmapFontTextParser",
+      "status": "unadapted"
+    },
+    {
+      "name": "bitmapFontXMLParser",
+      "status": "unadapted"
+    },
+    {
+      "name": "bitmapFontXMLStringParser",
+      "status": "unadapted"
+    },
+    {
+      "name": "bitmapTextSplit",
+      "status": "unadapted"
+    },
+    {
+      "name": "blendTemplateFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "blendTemplateVert",
+      "status": "unadapted"
+    },
+    {
+      "name": "blendTemplateWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "blockDataMap",
+      "status": "unadapted"
+    },
+    {
+      "name": "blurTemplateWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "boundsPool",
+      "status": "unadapted"
+    },
+    {
+      "name": "browserExt",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildAdaptiveBezier",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildAdaptiveQuadratic",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildArc",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildArcTo",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildArcToSvg",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildCircle",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildEllipse",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildGeometryFromPath",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildLine",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildPixelLine",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildPolygon",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildRectangle",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildRoundedRectangle",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildSVGFillAttributes",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildSVGPath",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildSVGStrokeAttributes",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildSimpleUvs",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildTriangle",
+      "status": "unadapted"
+    },
+    {
+      "name": "buildUvs",
+      "status": "unadapted"
+    },
+    {
+      "name": "cacheAsTextureMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "cacheTextureArray",
+      "status": "unadapted"
+    },
+    {
+      "name": "calculatePathArea",
+      "status": "unadapted"
+    },
+    {
+      "name": "calculateProjection",
+      "status": "unadapted"
+    },
+    {
+      "name": "canUseNewCanvasBlendModes",
+      "status": "unadapted"
+    },
+    {
+      "name": "canvasTextSplit",
+      "status": "unadapted"
+    },
+    {
+      "name": "canvasUtils",
+      "status": "unadapted"
+    },
+    {
+      "name": "checkChildrenDidChange",
+      "status": "unadapted"
+    },
+    {
+      "name": "checkDataUrl",
+      "status": "unadapted"
+    },
+    {
+      "name": "checkExtension",
+      "status": "unadapted"
+    },
+    {
+      "name": "checkForNestedPattern",
+      "status": "unadapted"
+    },
+    {
+      "name": "checkMaxIfStatementsInShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "childrenHelperMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "cleanArray",
+      "status": "unadapted"
+    },
+    {
+      "name": "cleanHash",
+      "status": "unadapted"
+    },
+    {
+      "name": "clearList",
+      "status": "unadapted"
+    },
+    {
+      "name": "closePointEps",
+      "status": "unadapted"
+    },
+    {
+      "name": "collapseNewlines",
+      "status": "unadapted"
+    },
+    {
+      "name": "collapseSpaces",
+      "status": "unadapted"
+    },
+    {
+      "name": "collectAllRenderables",
+      "status": "unadapted"
+    },
+    {
+      "name": "collectRenderablesMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "color32BitToUniform",
+      "status": "unadapted"
+    },
+    {
+      "name": "colorBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "colorBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "colorMatrixFilterFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "colorMatrixFilterWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "colorToUniform",
+      "status": "unadapted"
+    },
+    {
+      "name": "compareModeToGlCompare",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileBufferSync",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileHighShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileHighShaderGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileHighShaderGlProgram",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileHighShaderGpuProgram",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileHooks",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileInputs",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileOutputs",
+      "status": "unadapted"
+    },
+    {
+      "name": "compileShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "compute2DProjection",
+      "status": "unadapted"
+    },
+    {
+      "name": "convertFormatIfRequired",
+      "status": "unadapted"
+    },
+    {
+      "name": "convertToList",
+      "status": "unadapted"
+    },
+    {
+      "name": "copySearchParams",
+      "status": "unadapted"
+    },
+    {
+      "name": "createGlUploadCubeTextureResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "createGpuUploadCubeTextureResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "createIdFromString",
+      "status": "unadapted"
+    },
+    {
+      "name": "createIndicesForQuads",
+      "status": "unadapted"
+    },
+    {
+      "name": "createLevelBuffers",
+      "status": "unadapted"
+    },
+    {
+      "name": "createLevelBuffersFromKTX",
+      "status": "unadapted"
+    },
+    {
+      "name": "createStringVariations",
+      "status": "unadapted"
+    },
+    {
+      "name": "createTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "createUboElementsSTD40",
+      "status": "unadapted"
+    },
+    {
+      "name": "createUboElementsWGSL",
+      "status": "unadapted"
+    },
+    {
+      "name": "createUboSyncFunctionSTD40",
+      "status": "unadapted"
+    },
+    {
+      "name": "createUboSyncFunctionWGSL",
+      "status": "unadapted"
+    },
+    {
+      "name": "crossOrigin",
+      "status": "unadapted"
+    },
+    {
+      "name": "cullingMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "curveEps",
+      "status": "unadapted"
+    },
+    {
+      "name": "defaultFilterVert",
+      "status": "unadapted"
+    },
+    {
+      "name": "defaultValue",
+      "status": "unadapted"
+    },
+    {
+      "name": "definedProps",
+      "status": "unadapted"
+    },
+    {
+      "name": "deprecation",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectAvif",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectBasis",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectCompressed",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectDefaults",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectMp4",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectOgv",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectVideoAlphaMode",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectWebm",
+      "status": "unadapted"
+    },
+    {
+      "name": "detectWebp",
+      "status": "unadapted"
+    },
+    {
+      "name": "determineCrossOrigin",
+      "status": "unadapted"
+    },
+    {
+      "name": "displacementFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "displacementVert",
+      "status": "unadapted"
+    },
+    {
+      "name": "displacementWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "earcut",
+      "status": "unadapted"
+    },
+    {
+      "name": "effectsMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "ensureAttributes",
+      "status": "unadapted"
+    },
+    {
+      "name": "ensureIsBuffer",
+      "status": "unadapted"
+    },
+    {
+      "name": "ensurePrecision",
+      "status": "unadapted"
+    },
+    {
+      "name": "ensureTextOptions",
+      "status": "unadapted"
+    },
+    {
+      "name": "executeInstructions",
+      "status": "unadapted"
+    },
+    {
+      "name": "extensions",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "extractAttributesFromGlProgram",
+      "status": "unadapted"
+    },
+    {
+      "name": "extractAttributesFromGpuProgram",
+      "status": "unadapted"
+    },
+    {
+      "name": "extractFontFamilies",
+      "status": "unadapted"
+    },
+    {
+      "name": "extractStructAndGroups",
+      "status": "unadapted"
+    },
+    {
+      "name": "extractSubpaths",
+      "status": "unadapted"
+    },
+    {
+      "name": "extractSvgUrlId",
+      "status": "unadapted"
+    },
+    {
+      "name": "fastCopy",
+      "status": "unadapted"
+    },
+    {
+      "name": "findMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "fontStringFromTextStyle",
+      "status": "unadapted"
+    },
+    {
+      "name": "formatShader",
+      "status": "unadapted"
+    },
+    {
+      "name": "fragmentGPUTemplate",
+      "status": "unadapted"
+    },
+    {
+      "name": "fragmentGlTemplate",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateArraySyncSTD40",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateArraySyncWGSL",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateBlurFragSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateBlurGlProgram",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateBlurProgram",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateBlurVertSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateGPULayout",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateGpuLayoutGroups",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateLayout",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateLayoutHash",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateParticleUpdateFunction",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateProgram",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateShaderSyncCode",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateTextStyleKey",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateTextureBatchBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateTextureBatchBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateTextureMatrix",
+      "status": "unadapted"
+    },
+    {
+      "name": "generateUniformsSync",
+      "status": "unadapted"
+    },
+    {
+      "name": "getAdjustedBlendModeBlend",
+      "status": "unadapted"
+    },
+    {
+      "name": "getAttributeInfoFromFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "getBatchSamplersUniformGroup",
+      "status": "unadapted"
+    },
+    {
+      "name": "getBitmapTextLayout",
+      "status": "unadapted"
+    },
+    {
+      "name": "getCanvasBoundingBox",
+      "status": "unadapted"
+    },
+    {
+      "name": "getCanvasFillStyle",
+      "status": "unadapted"
+    },
+    {
+      "name": "getCanvasTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "getCharacterGroups",
+      "status": "unadapted"
+    },
+    {
+      "name": "getDefaultUniformValue",
+      "status": "unadapted"
+    },
+    {
+      "name": "getFastGlobalBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "getFastGlobalBoundsMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "getFillInstructionData",
+      "status": "unadapted"
+    },
+    {
+      "name": "getFontCss",
+      "status": "unadapted"
+    },
+    {
+      "name": "getFontFamilyName",
+      "status": "unadapted"
+    },
+    {
+      "name": "getGeometryBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "getGlTypeFromFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "getGlobalBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "getGlobalMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "getGlobalRenderableBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "getLocalBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "getMaxFragmentPrecision",
+      "status": "unadapted"
+    },
+    {
+      "name": "getMaxMiterRatio",
+      "status": "unadapted"
+    },
+    {
+      "name": "getMaxTexturesPerBatch",
+      "status": "unadapted"
+    },
+    {
+      "name": "getOrientationOfPoints",
+      "status": "unadapted"
+    },
+    {
+      "name": "getPlainText",
+      "status": "unadapted"
+    },
+    {
+      "name": "getPo2TextureFromSource",
+      "status": "unadapted"
+    },
+    {
+      "name": "getResolutionOfUrl",
+      "status": "unadapted"
+    },
+    {
+      "name": "getSVGUrl",
+      "status": "unadapted"
+    },
+    {
+      "name": "getSupportedCompressedTextureFormats",
+      "status": "unadapted"
+    },
+    {
+      "name": "getSupportedGPUCompressedTextureFormats",
+      "status": "unadapted"
+    },
+    {
+      "name": "getSupportedGlCompressedTextureFormats",
+      "status": "unadapted"
+    },
+    {
+      "name": "getSupportedTextureFormats",
+      "status": "unadapted"
+    },
+    {
+      "name": "getTemporaryCanvasFromImage",
+      "status": "unadapted"
+    },
+    {
+      "name": "getTestContext",
+      "status": "unadapted"
+    },
+    {
+      "name": "getTextureBatchBindGroup",
+      "status": "unadapted"
+    },
+    {
+      "name": "getTextureDefaultMatrix",
+      "status": "unadapted"
+    },
+    {
+      "name": "getTextureFormatFromKTXTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "getUboData",
+      "status": "unadapted"
+    },
+    {
+      "name": "getUniformData",
+      "status": "unadapted"
+    },
+    {
+      "name": "getUrlExtension",
+      "status": "unadapted"
+    },
+    {
+      "name": "glFormatToGPUFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "glUploadBufferImageResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "glUploadCompressedTextureResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "glUploadImageResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "glUploadVideoResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "globalUniformsBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "globalUniformsBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "globalUniformsUBOBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "gpuFormatToBasisTranscoderFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "gpuFormatToKTXBasisTranscoderFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "gpuUploadBufferImageResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "gpuUploadCompressedTextureResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "gpuUploadImageResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "gpuUploadVideoResource",
+      "status": "unadapted"
+    },
+    {
+      "name": "graphicsContextToSvg",
+      "status": "unadapted"
+    },
+    {
+      "name": "groupD8",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "hasCachedCanvasTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "hasTagMarkup",
+      "status": "unadapted"
+    },
+    {
+      "name": "hasTagStyles",
+      "status": "unadapted"
+    },
+    {
+      "name": "hslWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "hslgl",
+      "status": "unadapted"
+    },
+    {
+      "name": "hslgpu",
+      "status": "unadapted"
+    },
+    {
+      "name": "injectBits",
+      "status": "unadapted"
+    },
+    {
+      "name": "insertVersion",
+      "status": "unadapted"
+    },
+    {
+      "name": "isBreakAfterChar",
+      "status": "unadapted"
+    },
+    {
+      "name": "isBreakingSpace",
+      "status": "unadapted"
+    },
+    {
+      "name": "isCanvasFilterCapable",
+      "status": "unadapted"
+    },
+    {
+      "name": "isCollapsibleSpace",
+      "status": "unadapted"
+    },
+    {
+      "name": "isMobile",
+      "status": "unadapted"
+    },
+    {
+      "name": "isNewline",
+      "status": "unadapted"
+    },
+    {
+      "name": "isPow2",
+      "status": "unadapted"
+    },
+    {
+      "name": "isRenderingToScreen",
+      "status": "unadapted"
+    },
+    {
+      "name": "isSafari",
+      "status": "unadapted"
+    },
+    {
+      "name": "isSingleItem",
+      "status": "unadapted"
+    },
+    {
+      "name": "isWebGLSupported",
+      "status": "unadapted"
+    },
+    {
+      "name": "isWebGPUSupported",
+      "status": "unadapted"
+    },
+    {
+      "name": "ktxTranscoderUrls",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadBasis",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadBasisOnWorker",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadBitmapFont",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadDDS",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadEnvironmentExtensions",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadFontAsBase64",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadFontCSS",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadImageBitmap",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadJson",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadKTX",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadKTX2",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadKTX2onWorker",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadSVGImage",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadSvg",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadTextures",
+      "status": "adapter-present-requires-semantic-coverage"
+    },
+    {
+      "name": "loadTxt",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadVideoTextures",
+      "status": "unadapted"
+    },
+    {
+      "name": "loadWebFont",
+      "status": "unadapted"
+    },
+    {
+      "name": "localUniformBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "localUniformBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "localUniformBitGroup2",
+      "status": "unadapted"
+    },
+    {
+      "name": "localUniformMSDFBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "localUniformMSDFBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "log2",
+      "status": "unadapted"
+    },
+    {
+      "name": "logDebugTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "logProgramError",
+      "status": "unadapted"
+    },
+    {
+      "name": "logRenderGroupScene",
+      "status": "unadapted"
+    },
+    {
+      "name": "logScene",
+      "status": "unadapted"
+    },
+    {
+      "name": "mSDFBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "mSDFBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapCanvasBlendModesToPixi",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapFormatToGlFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapFormatToGlInternalFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapFormatToGlType",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapGlToVertexFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapSize",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapType",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapViewDimensionToGlTarget",
+      "status": "unadapted"
+    },
+    {
+      "name": "mapWebGLBlendModesToPixi",
+      "status": "unadapted"
+    },
+    {
+      "name": "maskFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "maskVert",
+      "status": "unadapted"
+    },
+    {
+      "name": "maskWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "matrixPool",
+      "status": "unadapted"
+    },
+    {
+      "name": "measureHtmlText",
+      "status": "unadapted"
+    },
+    {
+      "name": "measureMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "measureTaggedText",
+      "status": "unadapted"
+    },
+    {
+      "name": "migrateFragmentFromV7toV8",
+      "status": "unadapted"
+    },
+    {
+      "name": "mipmapScaleModeToGlFilter",
+      "status": "unadapted"
+    },
+    {
+      "name": "multiplyColors",
+      "status": "unadapted"
+    },
+    {
+      "name": "multiplyHexColors",
+      "status": "unadapted"
+    },
+    {
+      "name": "nextPow2",
+      "status": "unadapted"
+    },
+    {
+      "name": "noiseFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "noiseWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "nonCompressedFormats",
+      "status": "unadapted"
+    },
+    {
+      "name": "normalizeExtensionPriority",
+      "status": "unadapted"
+    },
+    {
+      "name": "onRenderMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseDDS",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseFunctionBody",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseKTX",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseSVGDefinitions",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseSVGFloatAttribute",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseSVGPath",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseSVGStyle",
+      "status": "unadapted"
+    },
+    {
+      "name": "parseTaggedText",
+      "status": "unadapted"
+    },
+    {
+      "name": "particleData",
+      "status": "unadapted"
+    },
+    {
+      "name": "particlesFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "particlesVert",
+      "status": "unadapted"
+    },
+    {
+      "name": "particlesWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "passthroughFrag",
+      "status": "unadapted"
+    },
+    {
+      "name": "passthroughWgsl",
+      "status": "unadapted"
+    },
+    {
+      "name": "path",
+      "status": "unadapted"
+    },
+    {
+      "name": "pointInTriangle",
+      "status": "unadapted"
+    },
+    {
+      "name": "preloadVideo",
+      "status": "unadapted"
+    },
+    {
+      "name": "removeItems",
+      "status": "unadapted"
+    },
+    {
+      "name": "removeStructAndGroupDuplicates",
+      "status": "unadapted"
+    },
+    {
+      "name": "resetUids",
+      "status": "unadapted"
+    },
+    {
+      "name": "resolveCharacters",
+      "status": "unadapted"
+    },
+    {
+      "name": "resolveCompressedTextureUrl",
+      "status": "unadapted"
+    },
+    {
+      "name": "resolveJsonUrl",
+      "status": "unadapted"
+    },
+    {
+      "name": "resolveTextureUrl",
+      "status": "unadapted"
+    },
+    {
+      "name": "resourceToTexture",
+      "status": "unadapted"
+    },
+    {
+      "name": "roundPixelsBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "roundPixelsBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "roundedShapeArc",
+      "status": "unadapted"
+    },
+    {
+      "name": "roundedShapeQuadraticCurve",
+      "status": "unadapted"
+    },
+    {
+      "name": "sayHello",
+      "status": "unadapted"
+    },
+    {
+      "name": "scaleModeToGlFilter",
+      "status": "unadapted"
+    },
+    {
+      "name": "setBasisTranscoderPath",
+      "status": "unadapted"
+    },
+    {
+      "name": "setKTXTranscoderPath",
+      "status": "unadapted"
+    },
+    {
+      "name": "setPositions",
+      "status": "unadapted"
+    },
+    {
+      "name": "setProgramName",
+      "status": "unadapted"
+    },
+    {
+      "name": "setUvs",
+      "status": "unadapted"
+    },
+    {
+      "name": "shapeBuilders",
+      "status": "unadapted"
+    },
+    {
+      "name": "sortMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "spritesheetAsset",
+      "status": "unadapted"
+    },
+    {
+      "name": "squaredDistanceToLineSegment",
+      "status": "unadapted"
+    },
+    {
+      "name": "stripVersion",
+      "status": "unadapted"
+    },
+    {
+      "name": "styleAttributes",
+      "status": "unadapted"
+    },
+    {
+      "name": "testImageFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "testVideoFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "textStyleToCSS",
+      "status": "unadapted"
+    },
+    {
+      "name": "textureBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "textureBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "textureFrom",
+      "status": "unadapted"
+    },
+    {
+      "name": "tilingBit",
+      "status": "unadapted"
+    },
+    {
+      "name": "tilingBitGl",
+      "status": "unadapted"
+    },
+    {
+      "name": "toFillStyle",
+      "status": "unadapted"
+    },
+    {
+      "name": "toLocalGlobalMixin",
+      "status": "unadapted"
+    },
+    {
+      "name": "toStrokeStyle",
+      "status": "unadapted"
+    },
+    {
+      "name": "tokenize",
+      "status": "unadapted"
+    },
+    {
+      "name": "tokenizeTaggedRuns",
+      "status": "unadapted"
+    },
+    {
+      "name": "transformVertices",
+      "status": "unadapted"
+    },
+    {
+      "name": "triangulateWithHoles",
+      "status": "unadapted"
+    },
+    {
+      "name": "trimRight",
+      "status": "unadapted"
+    },
+    {
+      "name": "uboSyncFunctionsSTD40",
+      "status": "unadapted"
+    },
+    {
+      "name": "uboSyncFunctionsWGSL",
+      "status": "unadapted"
+    },
+    {
+      "name": "uid",
+      "status": "unadapted"
+    },
+    {
+      "name": "uniformParsers",
+      "status": "unadapted"
+    },
+    {
+      "name": "unpremultiplyAlpha",
+      "status": "unadapted"
+    },
+    {
+      "name": "unsafeEvalSupported",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateLocalTransform",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateQuadBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateRenderGroupTransform",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateRenderGroupTransforms",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateTextBounds",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateTransformAndChildren",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateTransformBackwards",
+      "status": "unadapted"
+    },
+    {
+      "name": "updateWorldTransform",
+      "status": "unadapted"
+    },
+    {
+      "name": "v8_0_0",
+      "status": "unadapted"
+    },
+    {
+      "name": "v8_3_4",
+      "status": "unadapted"
+    },
+    {
+      "name": "validFormats",
+      "status": "unadapted"
+    },
+    {
+      "name": "validateRenderables",
+      "status": "unadapted"
+    },
+    {
+      "name": "vertexGPUTemplate",
+      "status": "unadapted"
+    },
+    {
+      "name": "vertexGlTemplate",
+      "status": "unadapted"
+    },
+    {
+      "name": "vkFormatToGPUFormat",
+      "status": "unadapted"
+    },
+    {
+      "name": "warn",
+      "status": "unadapted"
+    },
+    {
+      "name": "webworkerExt",
+      "status": "unadapted"
+    },
+    {
+      "name": "wordWrap",
+      "status": "unadapted"
+    },
+    {
+      "name": "wordWrapTaggedLines",
+      "status": "unadapted"
+    },
+    {
+      "name": "wrapModeToGlAddress",
+      "status": "unadapted"
+    }
+  ],
+  "officialOwnPrototypes": {
+    "Application": [
+      "canvas",
+      "destroy",
+      "domContainerRoot",
+      "init",
+      "render",
+      "screen",
+      "view"
+    ],
+    "Ticker": [
+      "FPS",
+      "_addListener",
+      "_cancelIfNeeded",
+      "_requestIfNeeded",
+      "_startIfPossible",
+      "add",
+      "addOnce",
+      "count",
+      "destroy",
+      "maxFPS",
+      "minFPS",
+      "remove",
+      "start",
+      "stop",
+      "update"
+    ],
+    "Container": [
+      "_didChangeId",
+      "_filterEffect",
+      "_getGlobalBoundsRecursive",
+      "_localBoundsCacheData",
+      "_localBoundsCacheId",
+      "_markStructureAsChanged",
+      "_maskEffect",
+      "_maskOptions",
+      "_onRender",
+      "_onUpdate",
+      "_setHeight",
+      "_setWidth",
+      "_updateIsSimple",
+      "_updateSkew",
+      "_zIndex",
+      "addChild",
+      "addChildAt",
+      "addEffect",
+      "allowChildren",
+      "alpha",
+      "angle",
+      "blendMode",
+      "cacheAsBitmap",
+      "cacheAsTexture",
+      "collectRenderables",
+      "collectRenderablesSimple",
+      "collectRenderablesWithEffects",
+      "cullArea",
+      "cullable",
+      "cullableChildren",
+      "culled",
+      "depthOfChildModified",
+      "destroy",
+      "disableRenderGroup",
+      "effects",
+      "enableRenderGroup",
+      "filterArea",
+      "filters",
+      "getBounds",
+      "getChildAt",
+      "getChildByLabel",
+      "getChildByName",
+      "getChildIndex",
+      "getChildrenByLabel",
+      "getFastGlobalBounds",
+      "getGlobalAlpha",
+      "getGlobalPosition",
+      "getGlobalTint",
+      "getGlobalTransform",
+      "getLocalBounds",
+      "getSize",
+      "height",
+      "isCachedAsTexture",
+      "isRenderGroup",
+      "isRenderable",
+      "label",
+      "mask",
+      "name",
+      "onRender",
+      "origin",
+      "pivot",
+      "position",
+      "removeChild",
+      "removeChildAt",
+      "removeChildren",
+      "removeEffect",
+      "removeFromParent",
+      "renderable",
+      "reparentChild",
+      "reparentChildAt",
+      "replaceChild",
+      "rotation",
+      "scale",
+      "setChildIndex",
+      "setFromMatrix",
+      "setMask",
+      "setSize",
+      "skew",
+      "sortChildren",
+      "sortDirty",
+      "sortableChildren",
+      "swapChildren",
+      "tint",
+      "toGlobal",
+      "toLocal",
+      "updateCacheTexture",
+      "updateLocalTransform",
+      "updateTransform",
+      "visible",
+      "width",
+      "worldTransform",
+      "x",
+      "y",
+      "zIndex"
+    ],
+    "Sprite": [
+      "anchor",
+      "destroy",
+      "getSize",
+      "height",
+      "setSize",
+      "sourceBounds",
+      "texture",
+      "updateBounds",
+      "visualBounds",
+      "width"
+    ],
+    "AnimatedSprite": [
+      "_updateTexture",
+      "autoUpdate",
+      "currentFrame",
+      "destroy",
+      "gotoAndPlay",
+      "gotoAndStop",
+      "play",
+      "playing",
+      "stop",
+      "textures",
+      "totalFrames",
+      "update"
+    ],
+    "TilingSprite": [
+      "anchor",
+      "clampMargin",
+      "containsPoint",
+      "destroy",
+      "getSize",
+      "height",
+      "setSize",
+      "texture",
+      "tilePosition",
+      "tileRotation",
+      "tileScale",
+      "tileTransform",
+      "updateBounds",
+      "uvRespectAnchor",
+      "width"
+    ],
+    "NineSliceSprite": [
+      "anchor",
+      "bottomHeight",
+      "destroy",
+      "getSize",
+      "height",
+      "leftWidth",
+      "originalHeight",
+      "originalWidth",
+      "rightWidth",
+      "setSize",
+      "texture",
+      "topHeight",
+      "trim",
+      "updateBounds",
+      "width"
+    ],
+    "Graphics": [
+      "_callContextMethod",
+      "_onTouch",
+      "arc",
+      "arcTo",
+      "arcToSvg",
+      "beginFill",
+      "beginPath",
+      "bezierCurveTo",
+      "bounds",
+      "chamferRect",
+      "circle",
+      "clear",
+      "clone",
+      "closePath",
+      "containsPoint",
+      "context",
+      "cut",
+      "destroy",
+      "drawCircle",
+      "drawEllipse",
+      "drawPolygon",
+      "drawRect",
+      "drawRoundedRect",
+      "drawStar",
+      "ellipse",
+      "endFill",
+      "fill",
+      "fillStyle",
+      "filletRect",
+      "getTransform",
+      "lineStyle",
+      "lineTo",
+      "moveTo",
+      "path",
+      "poly",
+      "quadraticCurveTo",
+      "rect",
+      "regularPoly",
+      "resetTransform",
+      "restore",
+      "rotateTransform",
+      "roundPoly",
+      "roundRect",
+      "roundShape",
+      "save",
+      "scaleTransform",
+      "setFillStyle",
+      "setStrokeStyle",
+      "setTransform",
+      "star",
+      "stroke",
+      "strokeStyle",
+      "svg",
+      "texture",
+      "transform",
+      "translateTransform",
+      "updateBounds"
+    ],
+    "GraphicsContext": [
+      "_initNextPathLocation",
+      "arc",
+      "arcTo",
+      "arcToSvg",
+      "beginPath",
+      "bezierCurveTo",
+      "bounds",
+      "chamferRect",
+      "circle",
+      "clear",
+      "clone",
+      "closePath",
+      "containsPoint",
+      "cut",
+      "destroy",
+      "ellipse",
+      "fill",
+      "fillStyle",
+      "filletRect",
+      "getTransform",
+      "lineTo",
+      "moveTo",
+      "onUpdate",
+      "path",
+      "poly",
+      "quadraticCurveTo",
+      "rect",
+      "regularPoly",
+      "resetTransform",
+      "restore",
+      "rotate",
+      "roundPoly",
+      "roundRect",
+      "roundShape",
+      "save",
+      "scale",
+      "setFillStyle",
+      "setStrokeStyle",
+      "setTransform",
+      "star",
+      "stroke",
+      "strokeStyle",
+      "svg",
+      "texture",
+      "transform",
+      "translate",
+      "unload"
+    ],
+    "GraphicsPath": [
+      "addPath",
+      "arc",
+      "arcTo",
+      "arcToSvg",
+      "bezierCurveTo",
+      "bezierCurveToShort",
+      "bounds",
+      "chamferRect",
+      "circle",
+      "clear",
+      "clone",
+      "closePath",
+      "ellipse",
+      "filletRect",
+      "getLastPoint",
+      "lineTo",
+      "moveTo",
+      "poly",
+      "quadraticCurveTo",
+      "quadraticCurveToShort",
+      "rect",
+      "regularPoly",
+      "roundPoly",
+      "roundRect",
+      "roundShape",
+      "shapePath",
+      "star",
+      "transform"
+    ],
+    "FillGradient": [
+      "addColorStop",
+      "buildGradient",
+      "buildLinearGradient",
+      "buildRadialGradient",
+      "destroy",
+      "styleKey"
+    ],
+    "FillPattern": [
+      "destroy",
+      "setTransform",
+      "styleKey",
+      "texture"
+    ],
+    "Text": [
+      "updateBounds"
+    ],
+    "TextStyle": [
+      "_createProxy",
+      "_fontString",
+      "_getFinalPadding",
+      "_isFillStyle",
+      "_toObject",
+      "align",
+      "assign",
+      "breakWords",
+      "clone",
+      "destroy",
+      "dropShadow",
+      "fill",
+      "filters",
+      "fontFamily",
+      "fontSize",
+      "fontStyle",
+      "fontVariant",
+      "fontWeight",
+      "leading",
+      "letterSpacing",
+      "lineHeight",
+      "padding",
+      "reset",
+      "stroke",
+      "styleKey",
+      "tagStyles",
+      "textBaseline",
+      "trim",
+      "update",
+      "whiteSpace",
+      "wordWrap",
+      "wordWrapWidth"
+    ],
+    "BitmapText": [
+      "_onTouch",
+      "resolution",
+      "updateBounds"
+    ],
+    "BitmapFont": [
+      "destroy"
+    ],
+    "Texture": [
+      "baseTexture",
+      "destroy",
+      "height",
+      "source",
+      "textureMatrix",
+      "update",
+      "updateUvs",
+      "width"
+    ],
+    "TextureSource": [
+      "_onStyleChange",
+      "_refreshPOT",
+      "addressMode",
+      "destroy",
+      "lodMaxClamp",
+      "lodMinClamp",
+      "magFilter",
+      "maxAnisotropy",
+      "minFilter",
+      "mipmapFilter",
+      "repeatMode",
+      "resize",
+      "resolution",
+      "resourceHeight",
+      "resourceWidth",
+      "scaleMode",
+      "source",
+      "style",
+      "unload",
+      "update",
+      "updateMipmaps",
+      "wrapMode"
+    ],
+    "TextureStyle": [
+      "_generateResourceId",
+      "_resourceId",
+      "addressMode",
+      "destroy",
+      "maxAnisotropy",
+      "scaleMode",
+      "update",
+      "wrapMode"
+    ],
+    "RenderTexture": [
+      "resize"
+    ],
+    "Assets": [],
+    "Mesh": [
+      "batched",
+      "bounds",
+      "containsPoint",
+      "destroy",
+      "geometry",
+      "material",
+      "shader",
+      "texture",
+      "updateBounds"
+    ],
+    "MeshGeometry": [
+      "indices",
+      "positions",
+      "uvs"
+    ],
+    "MeshPlane": [
+      "destroy",
+      "texture",
+      "textureUpdated"
+    ],
+    "MeshRope": [
+      "_render"
+    ],
+    "Particle": [
+      "_updateColor",
+      "alpha",
+      "tint"
+    ],
+    "ParticleContainer": [
+      "addChild",
+      "addChildAt",
+      "addParticle",
+      "addParticleAt",
+      "bounds",
+      "destroy",
+      "getChildAt",
+      "getChildIndex",
+      "onViewUpdate",
+      "removeChild",
+      "removeChildAt",
+      "removeChildren",
+      "removeParticle",
+      "removeParticleAt",
+      "removeParticles",
+      "reparentChild",
+      "reparentChildAt",
+      "setChildIndex",
+      "swapChildren",
+      "update",
+      "updateBounds"
+    ],
+    "Culler": [
+      "_cullRecursive",
+      "cull"
+    ]
+  }
+}

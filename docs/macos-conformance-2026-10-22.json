@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "pixiVersion": "8.20.0",
+  "durationMs": 1072,
+  "total": 34,
+  "failed": 0,
+  "results": [
+    {
+      "name": "v8/Application.init/Ticker",
+      "pass": true
+    },
+    {
+      "name": "v8/Container/origin/reparent",
+      "pass": true
+    },
+    {
+      "name": "v8/Graphics/fill/stroke/clear",
+      "pass": true
+    },
+    {
+      "name": "v8/GraphicsContext/share/cut/transform",
+      "pass": true
+    },
+    {
+      "name": "v8/Graphics/svg",
+      "pass": true
+    },
+    {
+      "name": "v8/FillGradient/linear/radial",
+      "pass": true
+    },
+    {
+      "name": "v8/Assets/TextureSource/reload",
+      "pass": true
+    },
+    {
+      "name": "v8/Sprite/blend/string-options",
+      "pass": true
+    },
+    {
+      "name": "v8/events/local-hit/transformed-sprite",
+      "pass": true
+    },
+    {
+      "name": "v8/TextureSource/alpha",
+      "pass": true
+    },
+    {
+      "name": "v8/mask/context-hole/remove",
+      "pass": true
+    },
+    {
+      "name": "v8/MeshGeometry/vertex-update",
+      "pass": true
+    },
+    {
+      "name": "v8/Particle/dynamic/static/update/remove",
+      "pass": true
+    },
+    {
+      "name": "v8/AnimatedSprite/Ticker/completion",
+      "pass": true
+    },
+    {
+      "name": "v8/AnimatedSprite/alternate-signature/autoPlay",
+      "pass": true
+    },
+    {
+      "name": "v8/TextureSource/shared-style/lifetime",
+      "pass": true
+    },
+    {
+      "name": "v8/RenderTexture/high-dpi/resize/extract",
+      "pass": true
+    },
+    {
+      "name": "v8/Texture/source-replacement/empty-lifetime",
+      "pass": true
+    },
+    {
+      "name": "v8/RenderTexture/direct-constructor/options",
+      "pass": true
+    },
+    {
+      "name": "v8/Texture/source-ownership/high-dpi-buffer",
+      "pass": true
+    },
+    {
+      "name": "v8/MeshPlane/texture-resize/hidden-work",
+      "pass": true
+    },
+    {
+      "name": "v8/Particle/hidden-work/resume",
+      "pass": true
+    },
+    {
+      "name": "v8/resource-lifetime/repeated-create-destroy",
+      "pass": true
+    },
+    {
+      "name": "v8/gradient/converted-resource-destruction",
+      "pass": true
+    },
+    {
+      "name": "v8/native-pointer/multi-touch/cancel",
+      "pass": true
+    },
+    {
+      "name": "v8/TextureSource/unsupported-options",
+      "pass": true
+    },
+    {
+      "name": "v8/DisplacementFilter/two-axis-scale",
+      "pass": true
+    },
+    {
+      "name": "v8/Container/onRender/cull",
+      "pass": true
+    },
+    {
+      "name": "v8/TextureStyle/independent-samplers",
+      "pass": true
+    },
+    {
+      "name": "v8/FillPattern/repeat-x",
+      "pass": true
+    },
+    {
+      "name": "v8/BitmapFont/dynamic-install",
+      "pass": true
+    },
+    {
+      "name": "v8/TextStyle/updates/BitmapText",
+      "pass": true
+    },
+    {
+      "name": "v8/Tiling/NineSlice/ColorMatrix",
+      "pass": true
+    },
+    {
+      "name": "v8/native-coverage",
+      "pass": true
+    }
+  ],
+  "platform": "macOS arm64",
+  "date": "2026-10-22",
+  "nativeInputProbeRun": false
+}

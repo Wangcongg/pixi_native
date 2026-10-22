@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runtimeAbi": 1,
+  "app": {
+    "name": "Pixi Native Conformance",
+    "id": "org.pixinative.conformance",
+    "version": "0.1.0",
+    "build": 1
+  },
+  "entry": "main.js",
+  "assets": "assets",
+  "orientation": "portrait",
+  "environment": "development",
+  "features": {
+    "spine": false
+  },
+  "android": {
+    "abis": [
+      "arm64-v8a"
+    ]
+  },
+  "ios": {
+    "developmentTeam": ""
+  }
+}

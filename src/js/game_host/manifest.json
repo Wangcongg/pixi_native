@@ -1,0 +1,24 @@
+{
+ "output": "game/game_host.js",
+ "parts": [
+  "00-prelude.js",
+  "01-kernel.js",
+  "02-webgl2-shim.js",
+  "03-dom-adapter.js",
+  "04-xml-parser.js",
+  "05-fetch-pacing.js",
+  "06-global-env.js",
+  "06a-web-platform.js",
+  "07-render-tree-enum.js",
+  "08-texture-ownership.js",
+  "09-game-env-override.js",
+  "10-text-input.js",
+  "11-html-audio.js",
+  "12-url-anchor.js",
+  "13-xhr.js",
+  "14-clipboard.js",
+  "15-bundle-loader.js",
+  "16-runtime-modules.js"
+ ],
+ "note": "片段按原文件顺序原样拼接=输出文件(逐字节一致)。改片段后运行 node tools/join_host_source.mjs game_host;ctest host_source_join 守卫漂移。"
+}

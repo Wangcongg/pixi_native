@@ -1,0 +1,29 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run audit:pixi8
+      - run: git diff --exit-code -- docs/pixi8-api-audit.json
+      - run: cmake -S . -B build-core -DCMAKE_BUILD_TYPE=Debug
+      - run: cmake --build build-core -j4
+      - run: ctest --test-dir build-core --output-on-failure
+  ios-compile:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run build:ios

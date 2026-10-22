@@ -1,0 +1,23 @@
+{
+  "output": "game/host/native_scenegraph.js",
+  "parts": [
+    "00-intro.js",
+    "01-spine-skin-bridge.js",
+    "02-slot-lease.js",
+    "03-render-sync.js",
+    "04-quad-ref.js",
+    "05-mutation-batch-core.js",
+    "06-batch-end-gsap-tweens.js",
+    "07-parent-sidecar-receipt.js",
+    "08-parent-links-hit-meta.js",
+    "09-lease-accessors-instrument.js",
+    "10-bind-tree-hooks.js",
+    "11-fgui-panes-present-hooks.js",
+    "12-writeback-coord-sync.js",
+    "13-bounds-hit-test.js",
+    "14-cache-as-bitmap-dumps.js",
+    "15-present.js",
+    "16-watch-probe-temp.js"
+  ],
+  "note": "\u7247\u6bb5\u6309\u539f\u6587\u4ef6\u987a\u5e8f\u539f\u6837\u62fc\u63a5=\u8f93\u51fa\u6587\u4ef6(\u9010\u5b57\u8282\u4e00\u81f4)\u3002\u6539\u7247\u6bb5\u540e\u8fd0\u884c node tools/join_host_source.mjs native_scenegraph;ctest host_source_join \u5b88\u536b\u6f02\u79fb\u3002"
+}

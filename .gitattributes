@@ -1,0 +1,9 @@
+* text=auto
+*.bat text eol=crlf
+*.png binary
+*.jar binary
+
+# Preserve upstream vendored formatting.
+vendor/** -whitespace
+third_party/** -whitespace
+src/third_party/** -whitespace

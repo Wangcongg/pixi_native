@@ -1,0 +1,2 @@
+-keepclasseswithmembernames class * { native <methods>; }
+-keep class org.pixinative.runtime.MainActivity { public *; }

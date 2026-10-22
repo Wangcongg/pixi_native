@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+function host(){const requests=[],aborts=[],assets=[],c=vm.createContext({performance,setTimeout,clearTimeout});for(const f of ['src/js/game_host/06a-web-platform.js','src/js/game_host/13-xhr.js','src/js/host/native_fetch.js'])vm.runInContext(fs.readFileSync(new URL('../'+f,import.meta.url),'utf8').split('// console 重定向')[0],c);c.__resolveURL=u=>String(u);c.__log=()=>{};c.__xhrSend=(...args)=>requests.push(args);c.__xhrAbort=id=>aborts.push(id);c.fetch=c.__nativeWrapFetch((url,options)=>{assets.push(url);return Promise.resolve({url,options});});return {c,requests,aborts,assets};}
+test('fetch preserves HTTP origin, POST body, headers, response status and Unicode',async()=>{
+  const {c,requests}=host();const task=c.fetch('https://api.example.test/path?q=1',{method:'POST',headers:{Authorization:'test-token'},body:'{"a":1}'});const [id,method,url,headers,body]=requests[0];assert.equal(method,'POST');assert.equal(url,'https://api.example.test/path?q=1');assert.equal(JSON.parse(headers).authorization,'test-token');assert.equal(body,'{"a":1}');
+  const bytes=new TextEncoder().encode('{"text":"你好😀"}');c.__xhrDone(id,403,'Forbidden','{"Content-Type":"application/json"}',bytes);const response=await task;assert.equal(response.ok,false);assert.equal(response.status,403);assert.equal(response.headers.get('CONTENT-TYPE'),'application/json');const clone=response.clone();assert.deepEqual({...await response.json()},{text:'你好😀'});assert.equal(await clone.text(),'{"text":"你好😀"}');await assert.rejects(response.text(),{name:'TypeError'});
+});
+test('fetch cancellation aborts native transport and late callbacks cannot fulfill the request',async()=>{
+  const {c,requests,aborts}=host(),controller=new c.AbortController(),reason=new Error('scene changed');const task=c.fetch('https://api.example.test/file',{signal:controller.signal});controller.abort(reason);await assert.rejects(task,e=>e===reason);assert.deepEqual(aborts,[requests[0][0]]);c.__xhrDone(requests[0][0],200,'OK','{}','late');
+  await assert.rejects(c.fetch('https://api.example.test/file',{signal:controller.signal}),e=>e===reason);assert.equal(requests.length,1);
+});
+test('fetch rejects network errors and keeps packaged assets on the asset resolver',async()=>{
+  const {c,requests,assets}=host();const task=c.fetch('https://api.example.test/file');c.__xhrDone(requests[0][0],0,'','{}','');await assert.rejects(task,/Network request failed/);assert.equal((await c.fetch('assets/data.json')).url,'assets/data.json');assert.deepEqual(assets,['assets/data.json']);
+});

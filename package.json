@@ -1,0 +1,23 @@
+{
+  "name": "pixi_native",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "prepare": "node tools/kit.mjs prepare examples/hello-pixi/app.config.json",
+    "doctor": "node tools/kit.mjs doctor examples/hello-pixi/app.config.json",
+    "test": "node --test tests/*.test.mjs",
+    "build:android": "node tools/kit.mjs build android examples/hello-pixi/app.config.json",
+    "build:ios": "node tools/kit.mjs build ios examples/hello-pixi/app.config.json",
+    "build:pixi8": "node tools/build-pixi8.mjs",
+    "audit:pixi8": "node tools/audit-pixi8.mjs",
+    "build:mac": "node tools/kit.mjs build mac examples/hello-pixi/app.config.json"
+  },
+  "devDependencies": {
+    "esbuild": "0.21.5"
+  },
+  "license": "MIT"
+}

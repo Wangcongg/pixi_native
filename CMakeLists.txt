@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.20)
+project(PixiNativeCoreTests LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+enable_testing()
+foreach(NAME IN ITEMS native_scenegraph_command_receipt native_scenegraph_local_bounds
+    native_scenegraph_model_fuzz native_scenegraph_generation native_scenegraph_inherited_geometry_hit
+    native_animation_frame native_union_mask_branch native_image_alpha native_scenegraph_pending)
+  add_executable(${NAME} "tests/native/${NAME}_test.cpp")
+  target_include_directories(${NAME} PRIVATE src)
+  add_test(NAME ${NAME} COMMAND ${NAME})
+endforeach()
+add_executable(native_image_decode tests/native/native_image_decode_test.cpp src/common/native_image_decode.cpp)
+target_include_directories(native_image_decode PRIVATE src)
+target_compile_definitions(native_image_decode PRIVATE KIT_TEST_PMA_FIXTURE="${CMAKE_CURRENT_SOURCE_DIR}/examples/runtime-conformance/assets/pma.png")
+add_test(NAME native_image_decode COMMAND native_image_decode)
