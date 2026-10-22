@@ -4,9 +4,9 @@
   "note": "Export presence is not full compatibility. This inventory includes public renderer infrastructure as well as scene APIs. See pixi8-compatibility.md for semantic limits and device evidence.",
   "summary": {
     "official": 739,
-    "adapterPresent": 68,
+    "adapterPresent": 88,
     "explicitlyUnsupported": 4,
-    "unadapted": 667
+    "unadapted": 647
   },
   "exports": [
     {
@@ -419,7 +419,7 @@
     },
     {
       "name": "DOMAdapter",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "DOMContainer",
@@ -599,7 +599,7 @@
     },
     {
       "name": "Geometry",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "GlBackBufferSystem",
@@ -1047,11 +1047,11 @@
     },
     {
       "name": "PerspectiveMesh",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "PerspectivePlaneGeometry",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "PinLightBlend",
@@ -1063,7 +1063,7 @@
     },
     {
       "name": "PlaneGeometry",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "Point",
@@ -1075,11 +1075,11 @@
     },
     {
       "name": "Pool",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "PoolGroupClass",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "PrepareBase",
@@ -1163,7 +1163,7 @@
     },
     {
       "name": "RopeGeometry",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "RoundedRectangle",
@@ -1295,15 +1295,15 @@
     },
     {
       "name": "TextureMatrix",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "TexturePool",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "TexturePoolClass",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "TextureSource",
@@ -1315,7 +1315,7 @@
     },
     {
       "name": "TextureUvs",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "TextureView",
@@ -1351,7 +1351,7 @@
     },
     {
       "name": "Transform",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "Triangle",
@@ -1423,7 +1423,7 @@
     },
     {
       "name": "ViewableBuffer",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "VividLightBlend",
@@ -1947,7 +1947,7 @@
     },
     {
       "name": "earcut",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "effectsMixin",
@@ -2379,7 +2379,7 @@
     },
     {
       "name": "isPow2",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "isRenderingToScreen",
@@ -2499,7 +2499,7 @@
     },
     {
       "name": "log2",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "logDebugTexture",
@@ -2607,7 +2607,7 @@
     },
     {
       "name": "nextPow2",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "noiseFrag",
@@ -2699,7 +2699,7 @@
     },
     {
       "name": "removeItems",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "removeStructAndGroupDuplicates",
@@ -2871,7 +2871,7 @@
     },
     {
       "name": "uid",
-      "status": "unadapted"
+      "status": "adapter-present-requires-semantic-coverage"
     },
     {
       "name": "uniformParsers",
@@ -3405,10 +3405,50 @@
       "texture",
       "updateBounds"
     ],
+    "Geometry": [
+      "addAttribute",
+      "addIndex",
+      "bounds",
+      "destroy",
+      "getAttribute",
+      "getBuffer",
+      "getIndex",
+      "getSize",
+      "onBufferUpdate",
+      "unload",
+      "vertexCount"
+    ],
+    "Buffer": [
+      "data",
+      "dataInt32",
+      "destroy",
+      "setDataWithSize",
+      "static",
+      "unload",
+      "update"
+    ],
     "MeshGeometry": [
       "indices",
       "positions",
       "uvs"
+    ],
+    "PlaneGeometry": [
+      "build"
+    ],
+    "RopeGeometry": [
+      "_build",
+      "update",
+      "updateVertices",
+      "width"
+    ],
+    "PerspectivePlaneGeometry": [
+      "setCorners",
+      "updateProjection"
+    ],
+    "PerspectiveMesh": [
+      "setCorners",
+      "texture",
+      "textureUpdated"
     ],
     "MeshPlane": [
       "destroy",
@@ -3417,6 +3457,48 @@
     ],
     "MeshRope": [
       "_render"
+    ],
+    "TexturePoolClass": [
+      "clear",
+      "createTexture",
+      "getOptimalTexture",
+      "getSameSizeTexture",
+      "returnTexture"
+    ],
+    "TextureMatrix": [
+      "destroy",
+      "multiplyUvs",
+      "texture",
+      "update"
+    ],
+    "TextureUvs": [
+      "set",
+      "toString"
+    ],
+    "Transform": [
+      "_onUpdate",
+      "matrix",
+      "rotation",
+      "setFromMatrix",
+      "toString",
+      "updateSkew"
+    ],
+    "Pool": [
+      "clear",
+      "get",
+      "prepopulate",
+      "return",
+      "totalFree",
+      "totalSize",
+      "totalUsed"
+    ],
+    "PoolGroupClass": [
+      "clear",
+      "get",
+      "getPool",
+      "prepopulate",
+      "return",
+      "stats"
     ],
     "Particle": [
       "_updateColor",

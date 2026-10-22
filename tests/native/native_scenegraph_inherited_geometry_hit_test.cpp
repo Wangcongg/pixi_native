@@ -197,6 +197,22 @@ int main() {
         assert(static_cast<int>(shared[sg::HIT_RESULT_BASE + 2]) == guideSpine);
     }
 
+    {
+        std::vector<float> shared(sg::SHARED_FLOATS, 0.0f);
+        sg::SceneGraph graph;
+        graph.init(shared.data());
+        const int root = graph.alloc(), button = graph.alloc();
+        graph.setParent(root, 0, -1);
+        graph.setParent(button, root, -1);
+        setHitArea(shared.data(), button, 4, 6, 20, 20);
+        shared[button * sg::STRIDE + sg::EVENTMODE] = 3.0f;
+        shared[root * sg::STRIDE + sg::HITFLAGS] = sg::PAINT_CACHED_SUBTREE;
+        // A cached image replaces descendant paint only. Buttons retain their
+        // logical parent, world transform and input after the snapshot is made.
+        assert(graph.hitTest(root, 10.0f, 12.0f, false) > 0);
+        assert(static_cast<int>(shared[sg::HIT_RESULT_BASE + 1]) == button);
+        assert(graph.nodes[button].parent == root);
+    }
     std::cout << "native_scenegraph_inherited_geometry_hit_test: ok\n";
     return 0;
 }

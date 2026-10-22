@@ -10,3 +10,5 @@ The following are open work areas, not promised delivery dates.
 - Measure long gameplay sessions, native/GPU memory and sustained frame pacing on real devices.
 - Add signed Android/iOS/macOS release workflows using contributor-owned signing configuration, never repository defaults.
 - Improve documentation and small, independent examples for each validated API path.
+
+The first coverage increment now implements generic float32x2 Geometry, official Plane/Rope/Perspective CPU geometry on native meshes, Unicode bitmap atlas growth, native cacheAsTexture refresh and RenderTexture pooling. These features share their JavaScript and C++ implementation across Android, iOS and macOS; platform evidence and remaining semantic limits are recorded in docs/validation.md and docs/pixi8-support-boundary.zh-CN.md.

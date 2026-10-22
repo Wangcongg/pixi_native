@@ -1077,12 +1077,33 @@
       if(!r||typeof globalThis.__nativeRenderTexture!=='function')return false;
       var data=o._cacheData||(o._cacheData={});
       // Re-bake when the node was marked dirty after the last successful bake.
-      if(data.__nativeBaked&&data.sprite&&data.sprite.texture&&data.sprite.texture.valid&&
-         data.__nativeBakeFrame===(globalThis.__frameNo|0)&&!data.__nativeBakeDirty)return true;
+      if(data.__nativeBaked&&(data.__nativeEmpty||data.sprite&&data.sprite.texture&&data.sprite.texture.valid)&&
+         (o.__nativeV8Cache||data.__nativeBakeFrame===(globalThis.__frameNo|0))&&!data.__nativeBakeDirty)return true;
       if(data.__nativeBakeBusy)return !!(data.sprite&&data.sprite.texture&&data.sprite.texture.valid);
+      if(o.__nativeV8Cache){
+        // Rebuild live bounds before refresh. The previous cached sprite must
+        // not enlarge the next bake after content moves, shrinks or is cleared.
+        data.__nativeBakeBusy=1;o.__nativeCachedTextureActive=false;__writeHitMeta(o);
+        try{
+          // Publish pending geometry before measuring. This runs only on an
+          // explicit cache build/refresh, never on steady cached frames.
+          var publishCacheSubtree=function(node){
+            if(node!==o&&node.__nativeCachedTextureActive){__wrType(node);return;}
+            var children=node.children||[];
+            for(var ci=0;ci<children.length;ci++)if(children[ci]&&!children[ci]._destroyed)publishCacheSubtree(children[ci]);
+            __wrType(node);
+          };
+          publishCacheSubtree(o);
+        }finally{data.__nativeBakeBusy=0;}
+      }
       // Bounds in world space. Prefer native getBounds so FGUI leaves without JS facades count.
       var bounds=null;
-      try{bounds=o.getBounds(true);}catch(e){bounds=null;}
+      try{bounds=o.getBounds(true);}catch(e){if(o.__nativeV8Cache)throw e;bounds=null;}
+      if(o.__nativeV8Cache&&bounds&&(!(bounds.width>0)||!(bounds.height>0))){
+        if(data.sprite)data.sprite.destroy();if(data.__nativeRT)data.__nativeRT.destroy(true);
+        data.sprite=null;data.__nativeRT=null;data.__nativeEmpty=true;
+        data.__nativeBaked=1;data.__nativeBakeDirty=0;return true;
+      }
       if(!bounds||!(bounds.width>0.5)||!(bounds.height>0.5))return !!(data.sprite&&data.sprite.texture&&data.sprite.texture.valid);
       var res=Number(o._cacheAsBitmapResolution||r.resolution||1)||1;
       // ── 烘焙坐标链(与消费端逐环对齐) ──────────────────────────────────────────────
@@ -1130,6 +1151,13 @@
       m.a=res*cilA;m.b=res*cilB;m.c=res*cilC;m.d=res*cilD;
       m.tx=res*(-(cilA*clTX+cilC*clTY)-cbX0);m.ty=res*(-(cilB*clTX+cilD*clTY)-cbY0);
       data.__nativeBakeBusy=1;
+      var cacheAlpha=o.alpha,cacheTint=o.tint,cacheFilters=o.filters,cacheMask=o.mask;
+      if(o.__nativeV8Cache){
+        o.__nativeCachedTextureActive=false;__writeHitMeta(o);
+        // Group-level color, opacity, filters and mask are applied once when the
+        // cached image is painted, rather than being baked and then applied twice.
+        o.alpha=1;o.tint=0xFFFFFF;o.filters=null;o.mask=null;
+      }
       // Walk the live subtree while baking. Do NOT toggle o._cacheAsBitmap — that setter
       // destroys the RT on false. Instead __wrType checks __nativeBakeBusy and skips cache paint.
       var ok=false;
@@ -1139,9 +1167,11 @@
         r.render(o,{renderTexture:rt,clear:true,transform:m,skipUpdateTransform:false});
         ok=!!(rt.baseTexture&&rt.baseTexture.valid!==false);
       }catch(e){
+        if(o.__nativeV8Cache)throw e;
         if((globalThis.__nativeCabErrN||0)<8){globalThis.__nativeCabErrN=(globalThis.__nativeCabErrN||0)+1;__log('[native-cab] bake fail '+e.message);}
         ok=false;
       }finally{
+        if(o.__nativeV8Cache){o.alpha=cacheAlpha;o.tint=cacheTint;o.filters=cacheFilters;o.mask=cacheMask;}
         data.__nativeBakeBusy=0;
       }
       if(!ok)return !!(data.sprite&&data.sprite.texture&&data.sprite.texture.valid);
@@ -1154,12 +1184,17 @@
       if(sprite.anchor){sprite.anchor.x=-(cbX0/cbW);sprite.anchor.y=-(cbY0/cbH);}
       sprite._bounds=o._bounds;
       data.__nativeBaked=1;data.__nativeBakeDirty=0;data.__nativeBakeFrame=globalThis.__frameNo|0;
+      data.__nativeEmpty=false;
       data.__nativeBakeW=cbW;data.__nativeBakeH=cbH;data.__nativeBakeX=cbX0;data.__nativeBakeY=cbY0;
       if((globalThis.__nativeCabOkN||0)<4){globalThis.__nativeCabOkN=(globalThis.__nativeCabOkN||0)+1;__log('[native-cab] baked '+((o.constructor&&o.constructor.name)||'?')+' '+(w|0)+'x'+(h|0));}
       return true;
     };
     var __wrCachedBitmap=function(o){
       var data=o&&o._cacheData,sprite=data&&data.sprite,tex=sprite&&sprite.texture;
+      if(o&&o.__nativeV8Cache&&data&&data.__nativeEmpty){
+        var emptyB=o.__i*ST;__sgTypeW(emptyB,0);SGB[emptyB+oTEXID]=0;SGB[emptyB+oQUADCNT]=0;
+        o.__nativeCachedTextureActive=true;__writeHitMeta(o);return true;
+      }
       if(!tex||!tex.valid||!tex.baseTexture)return false;
       var b=o.__i*ST,bt=tex.baseTexture,tid=__nativeTexId(bt,true);
       if(!tid)return false;
@@ -1175,6 +1210,7 @@
       if(uvs){SGB[b+oUV]=uvs.x0;SGB[b+oUV+1]=uvs.y0;SGB[b+oUV+2]=uvs.x1;SGB[b+oUV+3]=uvs.y1;SGB[b+oUV+4]=uvs.x2;SGB[b+oUV+5]=uvs.y2;SGB[b+oUV+6]=uvs.x3;SGB[b+oUV+7]=uvs.y3;}
       else{SGB[b+oUV]=0;SGB[b+oUV+1]=0;SGB[b+oUV+2]=1;SGB[b+oUV+3]=0;SGB[b+oUV+4]=1;SGB[b+oUV+5]=1;SGB[b+oUV+6]=0;SGB[b+oUV+7]=1;}
       SGB[b+oTEXID]=tid;__sgTypeW(b,1);SGB[b+oQUADCNT]=0;SGB[b+oBLEND]=o.__nativeNodeProxy?(o._blendMode||0):(o.blendMode||0);SGB[b+oTINT]=__tintOf(o);SGB[b+oPREMUL]=__premulOf(bt);
+      if(o.__nativeV8Cache){o.__nativeCachedTextureActive=true;__writeHitMeta(o);}
       // Hide live children for paint order: the cache replaces the whole subtree visually.
       // Children stay in the tree for event/lifecycle; RENDERABLE=0 only suppresses drawing.
       // We do not mutate child flags permanently — next non-cached frame rewrites them via __wrType.
@@ -1190,7 +1226,7 @@
       return true;
     };
     var __wrMesh = function(o){
-      var b=o.__i*ST, geom=o.geometry, mat=o.shader||o.material;
+      var b=o.__i*ST, geom=o.__nativeMeshGeometry||o.geometry, mat=o.shader||o.material;
       if(!geom||!mat||!(PIXI.MeshMaterial&&mat instanceof PIXI.MeshMaterial)){__setEsc(o,b,'mesh-material');return;}
       var dm=PIXI.DRAW_MODES||{}, mode=o.drawMode;
       if(mode===undefined||mode===null)mode=dm.TRIANGLES;

@@ -7,3 +7,5 @@ Baseline: `pixi.js@8.20.0`. The public entry is `src/compat/pixi8.mjs`. Official
 Use `pixiVersion: 8` in project configuration and the `PIXI` passed to `PixiNativeApp.start`. The entry returns an initialized Application. `globalThis.PIXI` remains an internal resource bridge and should not be used as the public Pixi 8 namespace.
 
 Run `npm run audit:pixi8` after interface changes and update the support boundary with native evidence. Public builds do not include business SDKs, game configurations or remote project defaults.
+
+The next coverage increment adds native-backed generic 2D Geometry (including interleaved buffers), official CPU Plane/Rope/Perspective geometry, automatic Unicode bitmap atlas growth, explicit cacheAsTexture refresh/lifetime, and a native RenderTexture pool. CPU Transform/UV/pooling/math utilities are reused from the pinned upstream. Shader/Filter programs, RenderGroup/RenderLayer, HTMLText, pixelLine, advanced masks and other source formats remain separate open areas; an increased export count is not full parity.

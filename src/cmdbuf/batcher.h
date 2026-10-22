@@ -247,6 +247,20 @@ public:
         glDisable(GL_SCISSOR_TEST);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+        // A nested RenderTexture can be sampled by the encoded GL stream as
+        // soon as this call returns. Publish native offscreen writes at that
+        // boundary. The dependency is a GPU/server wait, not a CPU completion wait.
+        if (outputTransform) {
+            GLsync produced = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
+            glFlush();
+            if (produced) {
+                glWaitSync(produced, 0, GL_TIMEOUT_IGNORED);
+                glDeleteSync(produced);
+            } else {
+                ++escapes;
+                std::fprintf(stderr, "[native-rt] GPU publication fence failed: 0x%x\n", glGetError());
+            }
+        }
     }
 
     // ---- conch P1 流式模式:JS 主导遍历,decoder 按 QuadRefBatch 段喂节点号。与 pixi 命令流交错,
@@ -548,6 +562,7 @@ private:
             return false;
         }
 
+        if (((int)s[HITFLAGS]) & PAINT_CACHED_SUBTREE) return true;
         for (int child : sg_->nodes[idx].children) {
             if (child > 0 && child < NODE_CAP && sg_->nodes[child].alive &&
                 !preflightNode(child, false)) return false;
@@ -905,7 +920,7 @@ private:
         }
         if (ownScissored) popScissor();
         Node& n = sg_->nodes[idx];
-        for (size_t i=0;i<n.children.size();++i) {
+        for (size_t i=0;(((int)s[HITFLAGS])&PAINT_CACHED_SUBTREE)==0&&i<n.children.size();++i) {
             int c = n.children[i];
             if (c>0 && sg_->nodes[c].alive) {
                 if (!unionMaskRects.empty()) {

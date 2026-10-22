@@ -1,0 +1,411 @@
+{
+  "date": "2026-10-22",
+  "baseline": "pixi.js@8.20.0",
+  "example": "examples/pixi8-conformance",
+  "javascriptContracts": {
+    "passed": 142,
+    "failed": 0
+  },
+  "cppContracts": {
+    "passed": 10,
+    "failed": 0
+  },
+  "platforms": {
+    "android": {
+      "compiledAbis": [
+        "arm64-v8a",
+        "x86_64"
+      ],
+      "ran": "arm64 Android API 35 emulator, 16384-byte pages, ANGLE/SwiftShader software GPU",
+      "coldStarts": [
+        {
+          "pixiVersion": "8.20.0",
+          "total": 42,
+          "failed": 0,
+          "durationMs": 1673
+        },
+        {
+          "pixiVersion": "8.20.0",
+          "total": 42,
+          "failed": 0,
+          "durationMs": 1315
+        },
+        {
+          "pixiVersion": "8.20.0",
+          "total": 42,
+          "failed": 0,
+          "durationMs": 1118
+        }
+      ],
+      "result": {
+        "pixiVersion": "8.20.0",
+        "total": 42,
+        "failed": 0,
+        "durationMs": 1118
+      },
+      "cases": [
+        {
+          "name": "v8/Application.init/Ticker",
+          "pass": true
+        },
+        {
+          "name": "v8/Container/origin/reparent",
+          "pass": true
+        },
+        {
+          "name": "v8/Graphics/fill/stroke/clear",
+          "pass": true
+        },
+        {
+          "name": "v8/GraphicsContext/share/cut/transform",
+          "pass": true
+        },
+        {
+          "name": "v8/Graphics/svg",
+          "pass": true
+        },
+        {
+          "name": "v8/FillGradient/linear/radial",
+          "pass": true
+        },
+        {
+          "name": "v8/Assets/TextureSource/reload",
+          "pass": true
+        },
+        {
+          "name": "v8/Sprite/blend/string-options",
+          "pass": true
+        },
+        {
+          "name": "v8/events/local-hit/transformed-sprite",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureSource/alpha",
+          "pass": true
+        },
+        {
+          "name": "v8/mask/context-hole/remove",
+          "pass": true
+        },
+        {
+          "name": "v8/MeshGeometry/vertex-update",
+          "pass": true
+        },
+        {
+          "name": "v8/Particle/dynamic/static/update/remove",
+          "pass": true
+        },
+        {
+          "name": "v8/AnimatedSprite/Ticker/completion",
+          "pass": true
+        },
+        {
+          "name": "v8/AnimatedSprite/alternate-signature/autoPlay",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureSource/shared-style/lifetime",
+          "pass": true
+        },
+        {
+          "name": "v8/RenderTexture/high-dpi/resize/extract",
+          "pass": true
+        },
+        {
+          "name": "v8/Texture/source-replacement/empty-lifetime",
+          "pass": true
+        },
+        {
+          "name": "v8/RenderTexture/direct-constructor/options",
+          "pass": true
+        },
+        {
+          "name": "v8/Texture/source-ownership/high-dpi-buffer",
+          "pass": true
+        },
+        {
+          "name": "v8/MeshPlane/texture-resize/hidden-work",
+          "pass": true
+        },
+        {
+          "name": "v8/Particle/hidden-work/resume",
+          "pass": true
+        },
+        {
+          "name": "v8/resource-lifetime/repeated-create-destroy",
+          "pass": true
+        },
+        {
+          "name": "v8/gradient/converted-resource-destruction",
+          "pass": true
+        },
+        {
+          "name": "v8/native-pointer/multi-touch/cancel",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureSource/unsupported-options",
+          "pass": true
+        },
+        {
+          "name": "v8/DisplacementFilter/two-axis-scale",
+          "pass": true
+        },
+        {
+          "name": "v8/Container/onRender/cull",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureStyle/independent-samplers",
+          "pass": true
+        },
+        {
+          "name": "v8/FillPattern/repeat-x",
+          "pass": true
+        },
+        {
+          "name": "v8/BitmapFont/dynamic-install",
+          "pass": true
+        },
+        {
+          "name": "v8/TextStyle/updates/BitmapText",
+          "pass": true
+        },
+        {
+          "name": "v8/Tiling/NineSlice/ColorMatrix",
+          "pass": true
+        },
+        {
+          "name": "v8/Geometry/interleaved/non-indexed/update",
+          "pass": true
+        },
+        {
+          "name": "v8/PerspectiveMesh/corners/native-pixels",
+          "pass": true
+        },
+        {
+          "name": "v8/BitmapText/automatic-Unicode-update/lifetime",
+          "pass": true
+        },
+        {
+          "name": "v8/cacheAsTexture/freeze/update/resolution/disable",
+          "pass": true
+        },
+        {
+          "name": "v8/TexturePool/native-target/reuse/extract",
+          "pass": true
+        },
+        {
+          "name": "v8/cacheAsTexture/filter-applied-once/child-input",
+          "pass": true
+        },
+        {
+          "name": "v8/DOMAdapter/native-context-contract",
+          "pass": true
+        },
+        {
+          "name": "v8/cacheAsTexture/repeated-bake-consume-destroy",
+          "pass": true
+        },
+        {
+          "name": "v8/native-coverage",
+          "pass": true
+        }
+      ]
+    },
+    "macos": {
+      "compiledAbis": [
+        "arm64"
+      ],
+      "ran": "AppKit/JavaScriptCore with ANGLE/Metal",
+      "result": {
+        "pixiVersion": "8.20.0",
+        "total": 42,
+        "failed": 0,
+        "durationMs": 1073
+      },
+      "cases": [
+        {
+          "name": "v8/Application.init/Ticker",
+          "pass": true
+        },
+        {
+          "name": "v8/Container/origin/reparent",
+          "pass": true
+        },
+        {
+          "name": "v8/Graphics/fill/stroke/clear",
+          "pass": true
+        },
+        {
+          "name": "v8/GraphicsContext/share/cut/transform",
+          "pass": true
+        },
+        {
+          "name": "v8/Graphics/svg",
+          "pass": true
+        },
+        {
+          "name": "v8/FillGradient/linear/radial",
+          "pass": true
+        },
+        {
+          "name": "v8/Assets/TextureSource/reload",
+          "pass": true
+        },
+        {
+          "name": "v8/Sprite/blend/string-options",
+          "pass": true
+        },
+        {
+          "name": "v8/events/local-hit/transformed-sprite",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureSource/alpha",
+          "pass": true
+        },
+        {
+          "name": "v8/mask/context-hole/remove",
+          "pass": true
+        },
+        {
+          "name": "v8/MeshGeometry/vertex-update",
+          "pass": true
+        },
+        {
+          "name": "v8/Particle/dynamic/static/update/remove",
+          "pass": true
+        },
+        {
+          "name": "v8/AnimatedSprite/Ticker/completion",
+          "pass": true
+        },
+        {
+          "name": "v8/AnimatedSprite/alternate-signature/autoPlay",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureSource/shared-style/lifetime",
+          "pass": true
+        },
+        {
+          "name": "v8/RenderTexture/high-dpi/resize/extract",
+          "pass": true
+        },
+        {
+          "name": "v8/Texture/source-replacement/empty-lifetime",
+          "pass": true
+        },
+        {
+          "name": "v8/RenderTexture/direct-constructor/options",
+          "pass": true
+        },
+        {
+          "name": "v8/Texture/source-ownership/high-dpi-buffer",
+          "pass": true
+        },
+        {
+          "name": "v8/MeshPlane/texture-resize/hidden-work",
+          "pass": true
+        },
+        {
+          "name": "v8/Particle/hidden-work/resume",
+          "pass": true
+        },
+        {
+          "name": "v8/resource-lifetime/repeated-create-destroy",
+          "pass": true
+        },
+        {
+          "name": "v8/gradient/converted-resource-destruction",
+          "pass": true
+        },
+        {
+          "name": "v8/native-pointer/multi-touch/cancel",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureSource/unsupported-options",
+          "pass": true
+        },
+        {
+          "name": "v8/DisplacementFilter/two-axis-scale",
+          "pass": true
+        },
+        {
+          "name": "v8/Container/onRender/cull",
+          "pass": true
+        },
+        {
+          "name": "v8/TextureStyle/independent-samplers",
+          "pass": true
+        },
+        {
+          "name": "v8/FillPattern/repeat-x",
+          "pass": true
+        },
+        {
+          "name": "v8/BitmapFont/dynamic-install",
+          "pass": true
+        },
+        {
+          "name": "v8/TextStyle/updates/BitmapText",
+          "pass": true
+        },
+        {
+          "name": "v8/Tiling/NineSlice/ColorMatrix",
+          "pass": true
+        },
+        {
+          "name": "v8/Geometry/interleaved/non-indexed/update",
+          "pass": true
+        },
+        {
+          "name": "v8/PerspectiveMesh/corners/native-pixels",
+          "pass": true
+        },
+        {
+          "name": "v8/BitmapText/automatic-Unicode-update/lifetime",
+          "pass": true
+        },
+        {
+          "name": "v8/cacheAsTexture/freeze/update/resolution/disable",
+          "pass": true
+        },
+        {
+          "name": "v8/TexturePool/native-target/reuse/extract",
+          "pass": true
+        },
+        {
+          "name": "v8/cacheAsTexture/filter-applied-once/child-input",
+          "pass": true
+        },
+        {
+          "name": "v8/DOMAdapter/native-context-contract",
+          "pass": true
+        },
+        {
+          "name": "v8/cacheAsTexture/repeated-bake-consume-destroy",
+          "pass": true
+        },
+        {
+          "name": "v8/native-coverage",
+          "pass": true
+        }
+      ]
+    },
+    "ios": {
+      "compiled": "arm64 iOS Simulator, Xcode 27 SDK, deployment target 15.0",
+      "ran": false,
+      "reason": "No available iOS Simulator runtime or device"
+    }
+  },
+  "limits": [
+    "No physical-phone, physical-haptic or live system-input acceptance",
+    "No sustained-FPS or long GPU-memory soak",
+    "64 consecutive cache bake/consume/destroy operations check final pixels and native handle balance",
+    "Not complete Pixi 8 API or plugin parity"
+  ]
+}

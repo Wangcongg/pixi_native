@@ -197,7 +197,7 @@
             do{
               __flushSortableOrder(__rtTop);var __rtStamp=__sgStructureVersion;
               try{__sgCanonicalBarrier(__rtTop.__i);}catch(e){}   // 四审:RT 烘焙前主树收敛=canonicalizing barrier(隐式 QueryNoAck 废止)
-              __flushRenderData(__rtTop);__rtPass++;__rtRetry=(__sgStructureVersion!==__rtStamp)||((SGB[DB]|0)!==0);
+              __flushRenderData(__rtTop,displayObject);__rtPass++;__rtRetry=(__sgStructureVersion!==__rtStamp)||((SGB[DB]|0)!==0);
             }while(__rtRetry&&__rtPass<3);
             globalThis.__sgInFlush=__rtOldFlush;
             // Refuse before touching the target if any visible node is not native-complete.  The
@@ -236,6 +236,16 @@
                   __rtOk=!!globalThis.__nativeRenderTexture(displayObject.__i,__rw,__rh,clearRT,alphaScale,
                     ma,-mb,mc,-md,mtx,__rh-mty);
                   if(__rtOk){
+                    // Native drawing changed real GL bindings. Invalidate Pixi's
+                    // caches immediately: a nested cache bake can bind/sample its
+                    // texture before another renderer.render() reaches the entry
+                    // reset above. Keeping the old sampler binding makes Android
+                    // apply texture parameters to the last native source instead
+                    // of the new render target (an incomplete/transparent sample).
+                    this.shader.reset();this.geometry.reset();
+                    if(this.buffer&&this.buffer.reset)this.buffer.reset();
+                    this.state.reset();this.texture.reset();
+                    if(this.framebuffer&&this.framebuffer.reset)this.framebuffer.reset();
                     if(options&&options.blit&&this.framebuffer&&this.framebuffer.blit)this.framebuffer.blit();
                     if(__rbt&&__rbt.update)__rbt.update();
                     var __rtgw=__rbt&&__rbt._glTextures&&__rbt._glTextures[this.CONTEXT_UID];if(__rtgw)__rtgw.dirtyId=__rbt.dirtyId;

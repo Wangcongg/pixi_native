@@ -32,6 +32,8 @@ enum {
 };
 static const int HIT_NATIVE_GEOMETRY_SELF_ONLY = 256;
 static const int HIT_NATIVE_DESCENDANT_GEOMETRY = 512;
+// Drawing a cached subtree suppresses only descendant paint, never hit testing or transforms.
+static const int PAINT_CACHED_SUBTREE = 1024;
 // TYPE 值:0=容器(不画,只递归) 1=sprite(native 合批) 2=未覆盖节点(native-only 跳过并计数)
 //         3=多-quad(9-slice/BitmapText/Graphics/Spine);4=只允许由父 Spine drawOrder 标记触发的 slot 容器;5=C++ 持有的多-quad。
 // 主屏不存在 Pixi 离屏快照类型：RenderTexture 也由 Native 直接填充。

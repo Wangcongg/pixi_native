@@ -109,7 +109,7 @@
     };
     globalThis.__sgSyncLocals = __syncLocals;
     var __renderBootstrapped=0;
-    var __flushRenderData=function(root){
+    var __flushRenderData=function(root,synchronousRoot){
       __qActiveRoot=root||__qActiveRoot;
       if(__qActiveRoot&&__qTop>QCAP*0.75&&((++__qSweepTick)%60===0))__qReclaimDetached(__qActiveRoot);
       if(!__renderBootstrapped){
@@ -121,22 +121,26 @@
       // one tick. Rasterising all of them synchronously causes 160-700ms main-thread stalls even
       // though steady-state rendering is 60fps. The host supplies a per-frame creation budget;
       // unfinished nodes remain dirty and are completed over the following frames.
-      var n=0, configured=(globalThis.__nativeRenderWorkBudget|0);
+      var n=0, budgeted=0, configured=(globalThis.__nativeRenderWorkBudget|0);
       var budget=configured>0?(globalThis.__nativeRenderBudgetRemaining|0):0x7fffffff;
       if(configured>0&&budget<0)budget=0;
       work.forEach(function(o){
         if(!o||!(o.__i>0)||o._destroyed)return;
-        if(n>=budget){__renderDirty.add(o);return;}
+        // A requested RenderTexture must contain its complete subtree now.
+        // Presentation quotas may defer unrelated screen work, never snapshot
+        // contents; otherwise caching a newly created node can freeze it blank.
+        var required=synchronousRoot&&__linkedToRoot(o,synchronousRoot);
+        if(!required&&budgeted>=budget){__renderDirty.add(o);return;}
         // FGUI updates reusable list rows while they are detached from the stage. Multi-quad nodes
         // that already own storage can be rewritten immediately. Keep every other dirty node pending
         // until its subtree is attached again; dropping it leaves stale Text/Sprite textures such as
         // a package-authored "PLAY" title until a later hover happens to invalidate the node.
         if(!__linkedToRoot(o,__qActiveRoot)&&!(o.__qCap>0)){__renderDetachedDirty.add(o);return;}
         __renderDetachedDirty.delete(o);
-        try{o.__sgWriting=1;__wrType(o);n++;}catch(e){if(globalThis.__SG_DIAG===1&&(globalThis.__wrErrN||0)<8){globalThis.__wrErrN=(globalThis.__wrErrN||0)+1;__log('[render-sync] '+e.message);}}
+        try{o.__sgWriting=1;__wrType(o);n++;if(!required)budgeted++;}catch(e){if(o.__nativePixi8)throw e;if(globalThis.__SG_DIAG===1&&(globalThis.__wrErrN||0)<8){globalThis.__wrErrN=(globalThis.__wrErrN||0)+1;__log('[render-sync] '+e.message);}}
         finally{o.__sgWriting=0;}
       });
-      if(configured>0)globalThis.__nativeRenderBudgetRemaining=Math.max(0,budget-n);
+      if(configured>0)globalThis.__nativeRenderBudgetRemaining=Math.max(0,budget-budgeted);
       globalThis.__sgRenderUpdated=n;
       return n;
     };

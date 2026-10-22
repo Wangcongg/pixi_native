@@ -42,7 +42,7 @@
       (object.__nativeFguiOverflowHit?128:0)|
       (object.__nativeHitGeometrySelfOnly?SELF_INTERACTION_MASK:0)|
       (object.__nativeHitGeometryFromChildren?DESCENDANT_GEOMETRY_MASK:0)|
-      (object.__nativeFguiMaskFlags||0);
+      (object.__nativeFguiMaskFlags||0)|(object.__nativeCachedTextureActive?1024:0);
   }
   return {GEOMETRY_MASK:GEOMETRY_MASK,SELF_INTERACTION_MASK:SELF_INTERACTION_MASK,
     DESCENDANT_GEOMETRY_MASK:DESCENDANT_GEOMETRY_MASK,

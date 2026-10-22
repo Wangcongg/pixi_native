@@ -29,14 +29,14 @@
 | 原生文字的渐变和纹理填充 | Text 样式转换遇到渐变或纹理填充、描边会明确报错，可能在同步或绘制时触发 | 纯色文字可走已有路径；渐变、图案文字不能直接使用 |
 | 像素线 | `Graphics.stroke({ pixelLine: true })` 以及相应批次明确报错 | 依赖缩放后保持固定像素宽度的线条无法按该 API 实现 |
 | 部分遮罩选项 | `setMask({ inverse: true })` 和非 `red` 的 `channel` 明确报错 | 反向遮罩、其他通道遮罩不能直接使用 |
-| 部分纹理缓存选项 | `cacheAsTexture` 传入 `resolution` 或 `antialias` 选项明确报错 | 布尔开关路径已有实现；不能假定缓存参数与官方一致 |
+| 缓存纹理的 MSAA | `cacheAsTexture({ antialias: true })` 明确报错；`resolution` 和 `antialias: false` 已接入 | 缓存与刷新走原生 RenderTexture，不能启用多采样抗锯齿 |
 | 多采样离屏目标 | TextureSource 的 `antialias: true`、`sampleCount` 非 1，以及对象形式 `generateTexture` 的 `antialias: true` 明确报错 | 不支持这些路径的 MSAA 离屏抗锯齿 |
 | 非 RGBA8 或非二维纹理源 | 公共 TextureSource 接受 `rgba8unorm`、二维、单层、单采样、单 mip 层；其他格式、维度或数量明确拒绝 | 浮点目标、整数格式、立方体、3D、数组纹理、多 mip 层不能直接使用 |
 | 非字节像素缓冲 | BufferImageSource 需要调用方提供 `Uint8Array` 或 `Uint8ClampedArray` RGBA8 数据；Float32、Uint16 等明确拒绝；不支持官方的默认浮点缓冲用法 | 像素处理代码必须核对格式，不能直接照搬官方默认值 |
-| 部分高级混合模式 | 字符串 `overlay`、`darken`、`lighten`、`color-dodge`、`color-burn`、`hard-light`、`soft-light`、`difference`、`exclusion`、`hue`、`saturation`、`color`、`luminosity` 明确拒绝 | 用这些模式实现的叠色、光效不能直接使用；传数字目前会绕过这层校验，也不代表支持 |
+| 部分高级混合模式 | 字符串 `overlay`、`darken`、`lighten`、`color-dodge`、`color-burn`、`hard-light`、`soft-light`、`difference`、`exclusion`、`hue`、`saturation`、`color`、`luminosity` 明确拒绝 | 用这些模式实现的叠色、光效不能直接使用；数字和字符串均进行同样校验 |
 | 视频和压缩纹理的公开 Source API | `VideoSource`、`CompressedSource` 未导出 | 不能按这些 Pixi 8 公共接口接入；已有资源加载器的 KTX2/ASTC 路径不等于完整支持 CompressedSource |
-| 通用 Geometry 和透视网格接口 | `Geometry`、`PerspectiveMesh` 未导出 | 普通 MeshGeometry 已有适配，不能据此推断任意几何布局或透视网格可用 |
-| BitmapText 自动补全 Unicode 图集 | 未加载字体时的自动安装仅覆盖 ASCII，后续文字变化不会按完整 Pixi 8 语义自动扩充所有 Unicode 字形 | 多语言切换、新出现的汉字或符号可能缺字，且不一定报错；应预先提供包含所需字符的字体图集，或明确安装字符集合 |
+| 自定义网格属性布局和实例化 | `Geometry` 已接入二维 `float32x2` 的 `aPosition`/`aUV`（含交错 stride/offset），支持 Uint16/Uint32 索引及无索引；其他位置/UV 格式和实例化明确拒绝 | 不能据此推断任意顶点属性、自定义 Shader 或 3D 网格布局可用 |
+| 静态 BitmapFont 缺失字形 | 加载的外部静态字体不会凭空生成缺失字形；自动字体和本适配层安装的动态字体支持按 Unicode 码点追加图集页 | 静态图集仍须包含所需字符；字体文件缺字、复杂文字塑形和新增字符跨批次 kerning 不等于完整浏览器排版 |
 | iOS 的浏览器形态震动接口 | 当前没有提供等价的 `navigator.vibrate` 桥 | Android 的震动实现不能作为 iOS 震动已支持的依据 |
 
 上表列出最可能影响游戏接入的明确缺口。完整导出项清单见后面的“完整 API 清单”；未导出的其他接口同样不能当作已支持。
@@ -49,11 +49,12 @@
 | Container 和变换 | 层级、标签、矩阵、origin、reparent、onRender、基础裁剪 | 任意 effect 链尚未完整适配；origin 与矩阵分解沿用 8.20 的相关行为限制 |
 | Graphics 和 SVG | 常见路径、形状、曲线、填充、cut、共享 GraphicsContext；SVG 基础形状和路径 | 字符串 SVG 需要原生 XML 桥；SVG CSS、外部资源、滤镜等完整浏览器 SVG 语义尚未建立 |
 | 渐变和图案 | 原生线性渐变、双圆径向渐变、纹理填充；repeat-x 有像素验证 | 复杂径向旋转、透明度、其他平铺和变换组合需要更多原版像素对比；不适用于上表拒绝的文字填充 |
+| 缓存纹理和 TexturePool | 原生缓存构建、冻结、显式刷新、分辨率、禁用/销毁、子节点继续命中；TexturePool 的 POT 目标复用、裁剪 frame、分辨率、归还和 clear | 不支持 MSAA 和池纹理自动 mipmap；不是官方 RenderGroup 的完整实现；复杂嵌套滤镜、遮罩和长期 GPU 内存仍需专项验证 |
 | Texture 和 Assets | 常见图片、图集、生命周期、源切换、重载、共享样式、高 DPI 字节源 | 任意 resource 替换、全部 metadata/cache 选项、Assets 扩展机制尚未完整迁移；RenderTexture 构造的 source 需是无图片资源的原生离屏源 |
 | Sprite 系列 | Sprite、AnimatedSprite、TilingSprite、NineSliceSprite 的适配路径 | 所有 trim、anchor、bounds、事件和变换组合尚未逐项与官方对比 |
-| Mesh | MeshGeometry、MeshSimple、MeshPlane、MeshRope；可见对象缓冲更新、Plane 自动 resize | 非三角形拓扑虽有参数映射，原生绘制语义尚未完整验证，不能承诺 line/point 模式正确 |
+| Mesh | Geometry、MeshGeometry、PlaneGeometry、RopeGeometry、PerspectivePlaneGeometry、PerspectiveMesh、MeshSimple、MeshPlane、MeshRope；可见对象缓冲更新、Plane 自动 resize、官方 CPU 透视细分算法 | 非三角形拓扑虽有参数映射，原生绘制语义尚未完整验证，不能承诺 line/point 模式正确 |
 | 粒子 | 轻量 Particle、批量 ParticleContainer、常见动态/静态属性、增删和隐藏分支恢复 | 同一容器的粒子必须共享一个 TextureSource，否则报错；全部属性组合未验证 |
-| Text 和 BitmapText | 原生字形栅格化、常见纯色填充/描边/阴影、样式更新、已有字体和显式字体安装 | 不能承诺所有字体缓存、回退、排版及 BitmapText 样式选项与官方完全一致；普通 Text 的 Unicode 能力与 BitmapText 自动 ASCII 图集不是同一限制 |
+| Text 和 BitmapText | 原生字形栅格化、常见纯色填充/描边/阴影、样式更新、静态字体、动态字体安装、自动 Unicode 码点追加、自动字体引用释放 | 字形追加保留旧纹理引用；跨追加批次的 kerning、复杂文字塑形、字体回退、彩色 Emoji 和全部排版选项尚未完整对比 |
 | 内置 Filter 和混合 | ColorMatrix、Blur、Alpha、Noise、Displacement 有原生适配路径；部分固定功能混合已接入 | 全部滤镜选项、组合、边缘和分数像素 Sprite mask 仍需对比，不能推断任意第三方 Filter 可用 |
 | 事件和生命周期 | 原生命中、capture/once、独立触摸 ID、primary/type、pointercancel 清理、visibilitychange | Federated 类和边界仍有 Pixi 7 桥接部分；不是完整 Pixi 8 EventSystem。Android 压力值并非完整硬件压力透传；高级触控笔字段未完整适配 |
 | 浏览器环境接口 | 面向游戏的 document/canvas、事件、fetch/XHR、编码等桥接 | 不是完整浏览器；不承诺任意 DOM/CSS 页面、浏览器插件或全部 Web API 可用。当前 TextDecoder 仅支持 UTF-8 |
@@ -72,7 +73,7 @@
 
 当前公开版的实际编译、运行和测试结果以 [验证记录](validation.md) 为准。旧底座的手机结果不自动转移到公开版。独立验收示例在 `examples/pixi8-conformance` 和 `examples/runtime-conformance`，它们不依赖游戏业务。
 
-固定版本 [API 导出清单](pixi8-api-audit.json) 共 739 项，其中 68 项适配层存在、4 项构造接口明确拒绝、667 项未适配导出。许多未适配项是 renderer 基础设施或工具；这些数字不是游戏兼容率。接口存在也不表示全部参数和语义一致。
+固定版本 [API 导出清单](pixi8-api-audit.json) 共 739 项，其中 88 项适配层存在、4 项构造接口明确拒绝、647 项未适配导出。新增导出包括官方 CPU 数据算法（Transform、UV、对象池和数学工具），不会替换原生 GPU 渲染器。许多未适配项是 renderer 基础设施或工具；这些数字不是游戏兼容率。接口存在也不表示全部参数和语义一致。
 
 源码依据为 [公开接口](../src/compat/pixi8.mjs) 及 `src/compat/pixi8/` 各模块。接口变更后执行 `npm run audit:pixi8` 更新清单。
 

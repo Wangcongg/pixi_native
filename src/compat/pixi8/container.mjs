@@ -1,9 +1,11 @@
 import {P,V8,blendNumber,nativeBlendModes,unsupported} from './environment.mjs'
+import {setCacheAsTexture,updateCacheTexture} from './cache.mjs'
 const R=globalThis.__nativeSceneRuntime,onRenderOwners=new Set()
 const blendNames=Object.fromEntries(Object.entries(nativeBlendModes).map(([k,v])=>[v,k]))
 function descriptor(proto,name){while(proto){const d=Object.getOwnPropertyDescriptor(proto,name);if(d)return d;proto=Object.getPrototypeOf(proto)}}
 export function boundsOf(rect,out=new V8.Bounds()){out.clear();out.addFrame(rect.x,rect.y,rect.x+rect.width,rect.y+rect.height);return out}
 export function applyOptions(node,options={}){
+  node.__nativePixi8=true
   for(const k of ['label','x','y','rotation','angle','alpha','visible','renderable','eventMode','interactiveChildren','hitArea','cursor','tint','blendMode','zIndex','sortableChildren','mask','filters','filterArea','cullable','cullableChildren','cullArea','boundsArea','roundPixels','onRender'])if(options[k]!==undefined)node[k]=options[k]
   for(const k of ['position','scale','pivot','skew','origin','anchor'])if(options[k]!==undefined&&node[k]){const v=options[k];typeof v==='number'?node[k].set(v):node[k].copyFrom(v)}
   for(const k of ['width','height'])if(options[k]!==undefined)node[k]=options[k]
@@ -17,7 +19,8 @@ export function installContainerAPI(proto){
     origin:{configurable:true,get(){if(!this.__v8Origin){const self=this;this.__v8Origin=new V8.ObservablePoint({ _onUpdate(){for(const point of [self.position,self.pivot]){const x=point.x,y=point.y;point.__offsetX=self.__v8Origin.x;point.__offsetY=self.__v8Origin.y;point.set(x,y)}}},0,0)}return this.__v8Origin},set(value){this.origin.copyFrom(value)}},
     onRender:{configurable:true,get(){return this.__v8OnRender??null},set(v){this.__v8OnRender=v;if(v)onRenderOwners.add(this);else onRenderOwners.delete(this)}},
     renderable:{configurable:true,get(){return this.__v8Renderable??renderable.get.call(this)},set(v){this.__v8Renderable=!!v;renderable.set.call(this,v&&!this.__v8Culled)}},
-    isCachedAsTexture:{get(){return this.cacheAsBitmap}},
+    isCachedAsTexture:{get(){return !!this.__nativeV8Cache}},
+    cacheAsBitmap:{configurable:true,get(){return this.isCachedAsTexture},set(value){setCacheAsTexture(this,value)}},
     culled:{get(){return this.__v8Culled||false},set(v){this.__v8Renderable=this.renderable;this.__v8Culled=!!v;renderable.set.call(this,this.__v8Renderable&&!v)}},
     isRenderable:{get(){return this.visible&&this.renderable&&this.alpha>0}},
     label:{configurable:true,get(){return this.__v8Label??null},set(v){this.__v8Label=v}},
@@ -41,8 +44,8 @@ export function installContainerAPI(proto){
     getGlobalTransform(out=new V8.Matrix(),skipUpdate=false){if(!skipUpdate)this.toGlobal(new P.Point());this.worldTransform.copyTo(out);return out},
     getGlobalAlpha(skipUpdate=false){let alpha=1;for(let p=this;p;p=p.parent)alpha*=p.alpha;return alpha},
     getGlobalTint(skipUpdate=false){let r=255,g=255,b=255;for(let p=this;p;p=p.parent){const c=p.tint??0xffffff;r=r*((c>>16)&255)/255;g=g*((c>>8)&255)/255;b=b*(c&255)/255}return (Math.round(r)<<16)|(Math.round(g)<<8)|Math.round(b)},
-    cacheAsTexture(value){if(value&&typeof value==='object'&&(value.resolution!==undefined||value.antialias!==undefined))unsupported('cacheAsTexture options');this.cacheAsBitmap=!!value},
-    updateCacheTexture(){this.cacheAsBitmap=false;this.cacheAsBitmap=true},
+    cacheAsTexture(value){setCacheAsTexture(this,value)},
+    updateCacheTexture(){updateCacheTexture(this)},
     setMask(options){if(options.inverse)unsupported('Container.setMask inverse');if(options.channel&&options.channel!=='red')unsupported('Container.setMask channel',options.channel);if(options.mask!==undefined)this.mask=options.mask},
     enableRenderGroup(){unsupported('Container.enableRenderGroup')},
     disableRenderGroup(){unsupported('Container.disableRenderGroup')},

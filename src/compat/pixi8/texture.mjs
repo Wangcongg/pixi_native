@@ -19,6 +19,7 @@ export class TextureSource extends P.utils.EventEmitter{
   onBaseDispose(){this.emit('change',this);this.emit('unload',this)}
   onBaseDestroy(){if(this._sourceDestroyed)return;this._sourceDestroyed=true;this._base.off('update',this.onBaseUpdate,this);this._base.off('dispose',this.onBaseDispose,this);this._base.off('destroyed',this.onBaseDestroy,this);this._style?.off('change',this.applyStyle,this);if(this._ownsStyle)this._style?.destroy();this._style=null;this.emit('destroy',this);this.removeAllListeners()}
   get resource(){return this._base.resource?.source??this._base.resource?.data}get width(){return this._base.width}get height(){return this._base.height}get pixelWidth(){return this._base.realWidth}get pixelHeight(){return this._base.realHeight}get resolution(){return this._base.resolution}set resolution(v){this._base.setResolution(v)}
+  get _resolution(){return this.resolution}set _resolution(value){this.resolution=value}
   get alphaMode(){return ['no-premultiply-alpha','premultiply-alpha-on-upload','premultiplied-alpha'][this._base.alphaMode]}set alphaMode(v){this._base.alphaMode=alphaNumber(v)}
   get scaleMode(){return this.style.scaleMode}set scaleMode(v){this.style.scaleMode=v;this.style.update()}
   get destroyed(){return this._base.destroyed}get format(){return 'rgba8unorm'}
